@@ -27,23 +27,40 @@
 
   function applyTheme(mode) {
     // mode: "light" | "dark" | "system"
-    var resolved = mode === "system" ? (systemPrefersDark() ? "dark" : "light") : mode;
+    var m = mode || "dark";
+    var resolved = m === "system" ? (systemPrefersDark() ? "dark" : "light") : m;
     root.setAttribute("data-theme", resolved);
-    root.setAttribute("data-theme-mode", mode);
-    Store.set(THEME_KEY, mode);
+    root.setAttribute("data-theme-mode", m);
+    root.setAttribute("data-bs-theme", resolved);
+    if (document.body) {
+      document.body.setAttribute("data-theme", resolved);
+      document.body.setAttribute("data-theme-mode", m);
+      document.body.setAttribute("data-bs-theme", resolved);
+    }
+    Store.set(THEME_KEY, m);
     document.querySelectorAll(".theme-toggle-btn").forEach(function (btn) {
-      btn.setAttribute("aria-label", resolved === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      var tip = resolved === "dark" ? "Switch to light mode" : "Switch to dark mode";
+      btn.setAttribute("aria-label", tip);
+      btn.setAttribute("title", tip);
     });
-    window.dispatchEvent(new CustomEvent("ourt:theme-changed", { detail: { theme: resolved, mode: mode } }));
+    syncActiveStates();
+    window.dispatchEvent(new CustomEvent("ourt:theme-changed", { detail: { theme: resolved, mode: m } }));
   }
 
   (function initTheme() {
-    var saved = Store.get(THEME_KEY) || "light";
+    // By default, the black / dark theme is first active across the entire project
+    var saved = Store.get(THEME_KEY);
+    if (!saved) {
+      saved = "dark";
+      Store.set(THEME_KEY, "dark");
+    }
     applyTheme(saved);
   })();
 
   document.addEventListener("click", function (e) {
-    if (e.target.closest(".theme-toggle-btn")) {
+    var toggleBtn = e.target.closest(".theme-toggle-btn");
+    if (toggleBtn) {
+      e.preventDefault();
       var current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
       applyTheme(current === "dark" ? "light" : "dark");
     }
@@ -53,7 +70,7 @@
     var preset = root.getAttribute("data-preset") || "blue";
     var sidebarStyle = root.getAttribute("data-sidebar") || "dark";
     var layout = root.getAttribute("data-layout") || "fluid";
-    var mode = root.getAttribute("data-theme-mode") || "light";
+    var mode = root.getAttribute("data-theme-mode") || "dark";
     document.querySelectorAll("[data-set-preset]").forEach(function (el) {
       el.classList.toggle("active", el.getAttribute("data-set-preset") === preset);
     });
@@ -109,7 +126,7 @@
   if (window.matchMedia) {
     var mq = window.matchMedia("(prefers-color-scheme: dark)");
     var mqHandler = function () {
-      if ((Store.get(THEME_KEY) || "light") === "system") applyTheme("system");
+      if ((Store.get(THEME_KEY) || "dark") === "system") applyTheme("system");
     };
     if (mq.addEventListener) mq.addEventListener("change", mqHandler);
   }

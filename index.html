@@ -1,408 +1,1571 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-theme-mode="dark">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Dashboard · OurtAuto Platform</title>
-<meta name="description" content="OurtAuto — an original automobile multi-seller e-commerce SaaS dashboard system built with HTML, CSS, Bootstrap 5 and vanilla JS.">
-<link rel="icon" type="image/svg+xml" href="assets/images/logos/favicon.svg">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/bootstrap-icons.min.css">
-<link rel="stylesheet" href="assets/css/aos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Dashboard · OurtAuto Platform</title>
+  <meta name="description"
+    content="OurtAuto — an original automobile multi-seller e-commerce SaaS dashboard system built with HTML, CSS, Bootstrap 5 and vanilla JS.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logos/favicon.svg">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/aos.css">
 
 
-<link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/theme.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
-<noscript><style>[data-aos]{opacity:1 !important; transform:none !important;}</style></noscript>
-<script>(function(){try{
-var d=document.documentElement,ls=window.localStorage;
-var t=ls.getItem("ourt-theme"),p=ls.getItem("ourt-preset"),sb=ls.getItem("ourt-sidebar-style"),lw=ls.getItem("ourt-layout-width");
-var resolved=t;
-if(t==="system"){resolved=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}
-if(t){d.setAttribute("data-theme",resolved);d.setAttribute("data-theme-mode",t);}
-if(p)d.setAttribute("data-preset",p);
-if(sb)d.setAttribute("data-sidebar",sb);
-if(lw)d.setAttribute("data-layout",lw);
-}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <noscript>
+    <style>
+      [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+  <script>(function () {
+      try {
+        var d = document.documentElement, ls = window.localStorage;
+        var t = ls.getItem("ourt-theme") || "dark", p = ls.getItem("ourt-preset"), sb = ls.getItem("ourt-sidebar-style"), lw = ls.getItem("ourt-layout-width");
+        var resolved = t;
+        if (t === "system") { resolved = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light"; }
+        d.setAttribute("data-theme", resolved); d.setAttribute("data-theme-mode", t); d.setAttribute("data-bs-theme", resolved);
+        if (p) d.setAttribute("data-preset", p);
+        if (sb) d.setAttribute("data-sidebar", sb);
+        if (lw) d.setAttribute("data-layout", lw);
+      } catch (e) { }
+    })();</script>
 
 </head>
-<body data-theme="light">
-<script>window.OURT_BASE = "";</script>
 
-<div class="ourt-shell">
-  <aside class="ourt-sidebar">
-  <div class="ourt-sidebar-brand">
-    <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none flex-grow-1 min-w-0">
-      <span class="ourt-brand-logo">O</span>
-      <span class="ourt-brand-name">Ourt<span>Auto</span></span>
-    </a>
-    <button class="btn btn-icon btn-sm text-white d-lg-none ourt-sidebar-close-btn" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
-  </div>
-  <div class="ourt-sidebar-scroll scroll-thin">
-    <div class="ourt-sidebar-label">MAIN</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#collapse-dash_group" aria-expanded="true" role="button"><i class="bi bi-grid-1x2-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Dashboards</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse show" id="collapse-dash_group"><li class="ourt-nav-item"><a class="ourt-nav-link active" href="index.html"><span class="ourt-nav-link-text">Overview</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/seller-dashboard.html"><span class="ourt-nav-link-text">Seller Dashboard</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/dealer-dashboard.html"><span class="ourt-nav-link-text">Dealer Dashboard</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/inventory-dashboard.html"><span class="ourt-nav-link-text">Inventory Dashboard</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/finance-dashboard.html"><span class="ourt-nav-link-text">Finance Dashboard</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/analytics-dashboard.html"><span class="ourt-nav-link-text">Analytics Dashboard</span></a></li></ul></li></ul><div class="ourt-sidebar-label">AUTOMOBILES</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-vehicles_group" aria-expanded="false" role="button"><i class="bi bi-car-front-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Vehicles</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-vehicles_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicles.html"><span class="ourt-nav-link-text">All Vehicles</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/add-vehicle.html"><span class="ourt-nav-link-text">Add Vehicle</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicle-inspection.html"><span class="ourt-nav-link-text">Inspection</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicle-valuation.html"><span class="ourt-nav-link-text">Valuation</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicle-approval.html"><span class="ourt-nav-link-text">Approval Queue</span></a></li></ul></li></ul><div class="ourt-sidebar-label">CATALOG</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-products_group" aria-expanded="false" role="button"><i class="bi bi-box-seam-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Products</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-products_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/products/products.html"><span class="ourt-nav-link-text">All Products</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/products/add-product.html"><span class="ourt-nav-link-text">Add Product</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/products/categories.html"><span class="ourt-nav-link-text">Categories & Brands</span></a></li></ul></li></ul><div class="ourt-sidebar-label">SELLERS</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-sellers_group" aria-expanded="false" role="button"><i class="bi bi-shop-window ourt-nav-icon"></i><span class="ourt-nav-link-text">Sellers</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-sellers_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/sellers/sellers.html"><span class="ourt-nav-link-text">All Sellers</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/sellers/seller-onboarding.html"><span class="ourt-nav-link-text">Seller Onboarding</span></a></li></ul></li></ul><div class="ourt-sidebar-label">SALES</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/customers/customers.html"><i class="bi bi-person-lines-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Customers</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/orders/orders.html"><i class="bi bi-receipt ourt-nav-icon"></i><span class="ourt-nav-link-text">Orders</span><span class="badge badge-soft-primary rounded-pill ourt-nav-badge">6</span></a></li></ul><div class="ourt-sidebar-label">CRM</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-crm_group" aria-expanded="false" role="button"><i class="bi bi-diagram-3-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Leads & Enquiries</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-crm_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/crm/lead-pipeline.html"><span class="ourt-nav-link-text">Lead Pipeline</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/crm/enquiries.html"><span class="ourt-nav-link-text">Enquiries</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/crm/test-drives.html"><span class="ourt-nav-link-text">Test Drives</span></a></li></ul></li></ul><div class="ourt-sidebar-label">OPERATIONS</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-service_group" aria-expanded="false" role="button"><i class="bi bi-tools ourt-nav-icon"></i><span class="ourt-nav-link-text">Service</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-service_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/service/service-bookings.html"><span class="ourt-nav-link-text">Bookings</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/service/service-calendar.html"><span class="ourt-nav-link-text">Calendar</span></a></li></ul></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/inventory/inventory.html"><i class="bi bi-boxes ourt-nav-icon"></i><span class="ourt-nav-link-text">Inventory</span></a></li></ul><div class="ourt-sidebar-label">FINANCE</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-finance_group" aria-expanded="false" role="button"><i class="bi bi-cash-stack ourt-nav-icon"></i><span class="ourt-nav-link-text">Finance</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-finance_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/finance/payments.html"><span class="ourt-nav-link-text">Payments & Transactions</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/finance/commissions-payouts.html"><span class="ourt-nav-link-text">Commissions & Payouts</span></a></li></ul></li></ul><div class="ourt-sidebar-label">MARKETING</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#collapse-marketing_group" aria-expanded="false" role="button"><i class="bi bi-megaphone-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Marketing</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a><ul class="ourt-nav-submenu collapse " id="collapse-marketing_group"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/marketing/campaigns.html"><span class="ourt-nav-link-text">Campaigns</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/marketing/coupons.html"><span class="ourt-nav-link-text">Coupons & Discounts</span></a></li></ul></li></ul><div class="ourt-sidebar-label">COMMUNICATION</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/communication/chat.html"><i class="bi bi-chat-dots ourt-nav-icon"></i><span class="ourt-nav-link-text">Chat</span><span class="badge badge-soft-primary rounded-pill ourt-nav-badge">3</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/communication/notifications.html"><i class="bi bi-bell ourt-nav-icon"></i><span class="ourt-nav-link-text">Notifications</span></a></li></ul><div class="ourt-sidebar-label">ADMINISTRATION</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/users/users.html"><i class="bi bi-people ourt-nav-icon"></i><span class="ourt-nav-link-text">Users</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/users/roles-permissions.html"><i class="bi bi-shield-lock ourt-nav-icon"></i><span class="ourt-nav-link-text">Roles & Permissions</span></a></li></ul><div class="ourt-sidebar-label">SETTINGS</div><ul class="ourt-sidebar-nav"><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/profile.html"><i class="bi bi-person-circle ourt-nav-icon"></i><span class="ourt-nav-link-text">My Profile</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/settings.html"><i class="bi bi-gear ourt-nav-icon"></i><span class="ourt-nav-link-text">Settings</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/pricing.html"><i class="bi bi-gem ourt-nav-icon"></i><span class="ourt-nav-link-text">Subscription Plans</span></a></li><li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/faq.html"><i class="bi bi-question-circle ourt-nav-icon"></i><span class="ourt-nav-link-text">Help Center</span></a></li></ul>
-  </div>
-  <div class="ourt-sidebar-footer">
-    <div class="ourt-sidebar-upgrade">
-      <i class="bi bi-rocket-takeoff-fill"></i>
-      <h6>Go Enterprise</h6>
-      <p>Unlock unlimited listings, branches &amp; team seats.</p>
-      <a href="pages/system/pricing.html" class="btn btn-light btn-sm w-100">View Plans</a>
+<body>
+  <script>window.OURT_BASE = "";</script>
+
+  <div class="ourt-shell">
+    <aside class="ourt-sidebar">
+      <div class="ourt-sidebar-brand">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none flex-grow-1 min-w-0">
+          <span class="ourt-brand-logo">O</span>
+          <span class="ourt-brand-name">Ourt<span>Auto</span></span>
+        </a>
+        <button class="btn btn-icon btn-sm text-white d-lg-none ourt-sidebar-close-btn" aria-label="Close menu"><i
+            class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="ourt-sidebar-scroll scroll-thin">
+        <div class="ourt-sidebar-label">MAIN</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link active" href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-dash_group" aria-expanded="true" role="button"><i
+                class="bi bi-grid-1x2-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Dashboards</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse show" id="collapse-dash_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link active" href="index.html"><span
+                    class="ourt-nav-link-text">Overview</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/seller-dashboard.html"><span
+                    class="ourt-nav-link-text">Seller Dashboard</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/dealer-dashboard.html"><span
+                    class="ourt-nav-link-text">Dealer Dashboard</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/inventory-dashboard.html"><span
+                    class="ourt-nav-link-text">Inventory Dashboard</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/finance-dashboard.html"><span
+                    class="ourt-nav-link-text">Finance Dashboard</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/analytics-dashboard.html"><span
+                    class="ourt-nav-link-text">Analytics Dashboard</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">AUTOMOBILES</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-vehicles_group" aria-expanded="false" role="button"><i
+                class="bi bi-car-front-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Vehicles</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-vehicles_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicles.html"><span
+                    class="ourt-nav-link-text">All Vehicles</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/add-vehicle.html"><span
+                    class="ourt-nav-link-text">Add Vehicle</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicle-inspection.html"><span
+                    class="ourt-nav-link-text">Inspection</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicle-valuation.html"><span
+                    class="ourt-nav-link-text">Valuation</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/vehicles/vehicle-approval.html"><span
+                    class="ourt-nav-link-text">Approval Queue</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">CATALOG</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-products_group" aria-expanded="false" role="button"><i
+                class="bi bi-box-seam-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Products</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-products_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/products/products.html"><span
+                    class="ourt-nav-link-text">All Products</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/products/add-product.html"><span
+                    class="ourt-nav-link-text">Add Product</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/products/categories.html"><span
+                    class="ourt-nav-link-text">Categories & Brands</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">SELLERS</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-sellers_group" aria-expanded="false" role="button"><i
+                class="bi bi-shop-window ourt-nav-icon"></i><span class="ourt-nav-link-text">Sellers</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-sellers_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/sellers/sellers.html"><span
+                    class="ourt-nav-link-text">All Sellers</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/sellers/seller-onboarding.html"><span
+                    class="ourt-nav-link-text">Seller Onboarding</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">SALES</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/customers/customers.html"><i
+                class="bi bi-person-lines-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Customers</span></a>
+          </li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/orders/orders.html"><i
+                class="bi bi-receipt ourt-nav-icon"></i><span class="ourt-nav-link-text">Orders</span><span
+                class="badge badge-soft-primary rounded-pill ourt-nav-badge">6</span></a></li>
+        </ul>
+        <div class="ourt-sidebar-label">CRM</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-crm_group" aria-expanded="false" role="button"><i
+                class="bi bi-diagram-3-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Leads &
+                Enquiries</span><i class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-crm_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/crm/lead-pipeline.html"><span
+                    class="ourt-nav-link-text">Lead Pipeline</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/crm/enquiries.html"><span
+                    class="ourt-nav-link-text">Enquiries</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/crm/test-drives.html"><span
+                    class="ourt-nav-link-text">Test Drives</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">OPERATIONS</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-service_group" aria-expanded="false" role="button"><i
+                class="bi bi-tools ourt-nav-icon"></i><span class="ourt-nav-link-text">Service</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-service_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/service/service-bookings.html"><span
+                    class="ourt-nav-link-text">Bookings</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/service/service-calendar.html"><span
+                    class="ourt-nav-link-text">Calendar</span></a></li>
+            </ul>
+          </li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/inventory/inventory.html"><i
+                class="bi bi-boxes ourt-nav-icon"></i><span class="ourt-nav-link-text">Inventory</span></a></li>
+        </ul>
+        <div class="ourt-sidebar-label">FINANCE</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-finance_group" aria-expanded="false" role="button"><i
+                class="bi bi-cash-stack ourt-nav-icon"></i><span class="ourt-nav-link-text">Finance</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-finance_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/finance/payments.html"><span
+                    class="ourt-nav-link-text">Payments & Transactions</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/finance/commissions-payouts.html"><span
+                    class="ourt-nav-link-text">Commissions & Payouts</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">MARKETING</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="#" data-bs-toggle="collapse"
+              data-bs-target="#collapse-marketing_group" aria-expanded="false" role="button"><i
+                class="bi bi-megaphone-fill ourt-nav-icon"></i><span class="ourt-nav-link-text">Marketing</span><i
+                class="bi bi-chevron-right ourt-menu-arrow ms-auto"></i></a>
+            <ul class="ourt-nav-submenu collapse " id="collapse-marketing_group">
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/marketing/campaigns.html"><span
+                    class="ourt-nav-link-text">Campaigns</span></a></li>
+              <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/marketing/coupons.html"><span
+                    class="ourt-nav-link-text">Coupons & Discounts</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ourt-sidebar-label">COMMUNICATION</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/communication/chat.html"><i
+                class="bi bi-chat-dots ourt-nav-icon"></i><span class="ourt-nav-link-text">Chat</span><span
+                class="badge badge-soft-primary rounded-pill ourt-nav-badge">3</span></a></li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/communication/notifications.html"><i
+                class="bi bi-bell ourt-nav-icon"></i><span class="ourt-nav-link-text">Notifications</span></a></li>
+        </ul>
+        <div class="ourt-sidebar-label">ADMINISTRATION</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/users/users.html"><i
+                class="bi bi-people ourt-nav-icon"></i><span class="ourt-nav-link-text">Users</span></a></li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/users/roles-permissions.html"><i
+                class="bi bi-shield-lock ourt-nav-icon"></i><span class="ourt-nav-link-text">Roles &
+                Permissions</span></a></li>
+        </ul>
+        <div class="ourt-sidebar-label">SETTINGS</div>
+        <ul class="ourt-sidebar-nav">
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/profile.html"><i
+                class="bi bi-person-circle ourt-nav-icon"></i><span class="ourt-nav-link-text">My Profile</span></a>
+          </li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/settings.html"><i
+                class="bi bi-gear ourt-nav-icon"></i><span class="ourt-nav-link-text">Settings</span></a></li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/pricing.html"><i
+                class="bi bi-gem ourt-nav-icon"></i><span class="ourt-nav-link-text">Subscription Plans</span></a></li>
+          <li class="ourt-nav-item"><a class="ourt-nav-link " href="pages/system/faq.html"><i
+                class="bi bi-question-circle ourt-nav-icon"></i><span class="ourt-nav-link-text">Help Center</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="ourt-sidebar-footer">
+        <div class="ourt-sidebar-upgrade">
+          <i class="bi bi-rocket-takeoff-fill"></i>
+          <h6>Go Enterprise</h6>
+          <p>Unlock unlimited listings, branches &amp; team seats.</p>
+          <a href="pages/system/pricing.html" class="btn btn-light btn-sm w-100">View Plans</a>
+        </div>
+      </div>
+    </aside>
+    <div class="ourt-flyout" id="ourtFlyout"></div>
+    <div class="ourt-overlay"></div>
+    <div class="ourt-main">
+      <header class="ourt-header">
+        <div class="ourt-header-left">
+          <button class="ourt-sidebar-toggle-btn" aria-label="Toggle sidebar"><i
+              class="bi bi-layout-sidebar"></i></button>
+          <button class="ourt-mobile-toggle-btn" aria-label="Open menu"><i class="bi bi-list"></i></button>
+          <a href="index.html" class="d-flex d-lg-none align-items-center gap-2 text-decoration-none flex-shrink-0">
+            <span class="ourt-brand-logo" style="width:30px;height:30px;font-size:13px;">O</span>
+          </a>
+          <div class="dropdown d-none d-lg-block">
+            <button class="ourt-workspace-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-grid-3x3-gap-fill text-primary-c"></i><span>Main Marketplace</span>
+              <span class="status-pulse-dot success ms-1" style="width:7px;height:7px;"
+                title="Connected to Central Hub"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Switch Workspace</li>
+              <li><a class="dropdown-item active" href="#"><i class="bi bi-building me-1"></i>Main Marketplace</a></li>
+              <li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Premium Cars</a></li>
+              <li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Commercial Vehicles</a></li>
+              <li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Bike Marketplace</a></li>
+              <li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Accessories Marketplace</a></li>
+            </ul>
+          </div>
+          <div class="dropdown d-none d-xl-block">
+            <button class="btn btn-soft-primary btn-sm dropdown-toggle d-flex align-items-center gap-1" type="button"
+              data-bs-toggle="dropdown">
+              <i class="bi bi-plus-circle-fill"></i><span>Quick Create</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Quick Operations</li>
+              <li><a class="dropdown-item" href="pages/vehicles/add-vehicle.html"><i
+                    class="bi bi-car-front-fill me-2 text-primary-c"></i>Add Vehicle Listing</a></li>
+              <li><a class="dropdown-item" href="pages/sellers/seller-onboarding.html"><i
+                    class="bi bi-shop me-2 text-success-c"></i>Onboard Dealer/Seller</a></li>
+              <li><a class="dropdown-item" href="pages/crm/test-drives.html"><i
+                    class="bi bi-calendar2-check me-2 text-info-c"></i>Schedule Test Drive</a></li>
+              <li><a class="dropdown-item" href="pages/orders/orders.html"><i
+                    class="bi bi-receipt me-2 text-warning-c"></i>Create New Order</a></li>
+            </ul>
+          </div>
+          <div class="ourt-header-search d-none d-md-block" role="button" data-bs-toggle="modal"
+            data-bs-target="#globalSearchModal">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search vehicles, sellers, orders... (Ctrl + K)" readonly
+              style="cursor:pointer;">
+            <kbd>Ctrl K</kbd>
+          </div>
+        </div>
+        <div class="ourt-header-right">
+          <button class="ourt-icon-btn ourt-header-search-mobile-btn d-none" data-bs-toggle="modal"
+            data-bs-target="#globalSearchModal" aria-label="Search"><i class="bi bi-search"></i></button>
+          <div class="dropdown d-none d-md-block">
+            <button class="ourt-icon-btn" type="button" data-bs-toggle="dropdown" aria-label="Language"><i
+                class="bi bi-translate"></i></button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item active" href="#">🇺🇸 English</a></li>
+              <li><a class="dropdown-item" href="#">🇮🇳 हिन्दी</a></li>
+              <li><a class="dropdown-item" href="#">🇪🇸 Español</a></li>
+              <li><a class="dropdown-item" href="#">🇫🇷 Français</a></li>
+            </ul>
+          </div>
+          <div class="dropdown d-none d-md-block">
+            <button class="ourt-icon-btn" type="button" data-bs-toggle="dropdown" aria-label="Demo role"
+              title="Preview as role">
+              <i class="bi bi-person-badge"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end scroll-thin" style="max-height:320px; overflow-y:auto;">
+              <li class="dropdown-header">Preview UI as role (demo only)</li>
+              <li><a class="dropdown-item active" href="#" data-demo-role="Super Admin"><i
+                    class="bi bi-person-badge me-1"></i>Super Admin</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Admin"><i
+                    class="bi bi-person-badge me-1"></i>Admin</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Seller"><i
+                    class="bi bi-person-badge me-1"></i>Seller</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Dealer"><i
+                    class="bi bi-person-badge me-1"></i>Dealer</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Branch Manager"><i
+                    class="bi bi-person-badge me-1"></i>Branch Manager</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Sales Manager"><i
+                    class="bi bi-person-badge me-1"></i>Sales Manager</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Sales Executive"><i
+                    class="bi bi-person-badge me-1"></i>Sales Executive</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Inventory Manager"><i
+                    class="bi bi-person-badge me-1"></i>Inventory Manager</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Service Manager"><i
+                    class="bi bi-person-badge me-1"></i>Service Manager</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Finance Manager"><i
+                    class="bi bi-person-badge me-1"></i>Finance Manager</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Marketing Manager"><i
+                    class="bi bi-person-badge me-1"></i>Marketing Manager</a></li>
+              <li><a class="dropdown-item " href="#" data-demo-role="Support Executive"><i
+                    class="bi bi-person-badge me-1"></i>Support Executive</a></li>
+            </ul>
+          </div>
+          <button class="ourt-icon-btn theme-toggle-btn" aria-label="Toggle theme"><i
+              class="bi bi-moon icon-moon"></i><i class="bi bi-sun icon-sun"></i></button>
+          <div class="dropdown">
+            <button class="ourt-icon-btn position-relative" type="button" data-bs-toggle="dropdown"
+              aria-label="Notifications">
+              <i class="bi bi-bell"></i><span class="badge-count notif-bell-badge">6</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end ourt-mega-dropdown">
+              <div class="dd-head">
+                <h6 class="mb-0">Notifications</h6><button class="btn btn-link btn-sm p-0 mark-all-read-btn">Mark all
+                  read</button>
+              </div>
+              <div class="ourt-notif-item unread">
+                <span class="ourt-notif-icon bg-soft-primary text-primary-c"><i class="bi bi-car-front-fill"></i></span>
+                <div class="flex-grow-1">
+                  <p>New vehicle <strong>Honda City ZX</strong> submitted for approval</p><small>4 min ago</small>
+                </div>
+              </div>
+              <div class="ourt-notif-item unread">
+                <span class="ourt-notif-icon bg-soft-success text-success-c"><i
+                    class="bi bi-person-plus-fill"></i></span>
+                <div class="flex-grow-1">
+                  <p>Seller <strong>SpeedZone Bikes</strong> completed KYC</p><small>22 min ago</small>
+                </div>
+              </div>
+              <div class="ourt-notif-item unread">
+                <span class="ourt-notif-icon bg-soft-info text-info-c"><i class="bi bi-credit-card-fill"></i></span>
+                <div class="flex-grow-1">
+                  <p>Payment of <strong>₹42,800</strong> received</p><small>1 hour ago</small>
+                </div>
+              </div>
+              <div class="ourt-notif-item ">
+                <span class="ourt-notif-icon bg-soft-warning text-warning-c"><i class="bi bi-calendar-check"></i></span>
+                <div class="flex-grow-1">
+                  <p>Test drive scheduled: <strong>Tata Nexon EV</strong>, tomorrow 11am</p><small>3 hours ago</small>
+                </div>
+              </div>
+              <div class="ourt-notif-item ">
+                <span class="ourt-notif-icon bg-soft-danger text-danger-c"><i
+                    class="bi bi-exclamation-triangle-fill"></i></span>
+                <div class="flex-grow-1">
+                  <p>Low stock: <strong>Brake Pad Set</strong> (4 units left)</p><small>5 hours ago</small>
+                </div>
+              </div>
+              <div class="ourt-notif-item ">
+                <span class="ourt-notif-icon bg-soft-accent text-accent-c"><i class="bi bi-star-fill"></i></span>
+                <div class="flex-grow-1">
+                  <p>New 5-star review for <strong>AutoHub Delhi</strong></p><small>Yesterday</small>
+                </div>
+              </div>
+              <div class="text-center p-2 border-top" style="border-color:var(--ourt-border)"><a
+                  href="pages/communication/notifications.html" class="fs-13 fw-600">View all notifications</a></div>
+            </div>
+          </div>
+          <button class="ourt-icon-btn fullscreen-btn d-none d-md-flex" aria-label="Fullscreen"><i
+              class="bi bi-arrows-fullscreen"></i></button>
+          <button class="ourt-icon-btn d-none d-md-flex" data-bs-toggle="offcanvas" data-bs-target="#settingsPanel"
+            aria-label="Settings"><i class="bi bi-gear"></i></button>
+          <div class="dropdown">
+            <button class="ourt-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              style="border:none;">
+              <img src="assets/images/avatars/av-3.svg" alt="Profile">
+              <span class="profile-meta d-none d-lg-block"><strong>Ananya Rao</strong><span>Platform Admin</span></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" style="width:230px;">
+              <div class="d-flex align-items-center gap-2 px-2 pb-2 mb-1 border-bottom"
+                style="border-color:var(--ourt-border)!important;">
+                <img src="assets/images/avatars/av-3.svg" style="width:40px;height:40px;border-radius:10px;" alt="">
+                <div><strong class="d-block fs-13 text-heading">Ananya Rao</strong><span
+                    class="fs-12 text-muted-c">ananya@ourtauto.io</span></div>
+              </div>
+              <a class="dropdown-item" href="pages/system/profile.html"><i class="bi bi-person"></i> My Profile</a>
+              <a class="dropdown-item" href="pages/system/settings.html"><i class="bi bi-gear"></i> Account Settings</a>
+              <a class="dropdown-item" href="pages/system/pricing.html"><i class="bi bi-gem"></i> Billing &amp;
+                Plans</a>
+              <a class="dropdown-item" href="pages/system/faq.html"><i class="bi bi-life-preserver"></i> Help Center</a>
+              <a class="dropdown-item" href="pages/auth/lock-screen.html"><i class="bi bi-lock"></i> Lock Screen</a>
+              <hr class="my-2" style="border-color:var(--ourt-border)">
+              <a class="dropdown-item text-danger-c" href="pages/auth/login.html"><i class="bi bi-box-arrow-right"></i>
+                Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="ourt-page-content">
+        <!-- Page Header -->
+        <div class="ourt-page-head" data-aos="fade-up">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-2">
+                <li class="breadcrumb-item"><i class="bi bi-house-door me-1"></i>Dashboards</li>
+                <li class="breadcrumb-item active">Master Overview</li>
+              </ol>
+            </nav>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <h2 class="mb-0">Master Dashboard</h2>
+              <span class="badge rounded-pill"
+                style="background:rgba(23,178,106,.14); color:#10b981; font-size:11.5px; padding:5px 12px; font-weight:700;">
+                <span class="status-pulse-dot success" style="width:6px;height:6px;margin-right:4px;"></span>Live System
+                v2.4
+              </span>
+            </div>
+            <p class="text-muted-c mb-0 fs-13 mt-1">Platform-wide overview across 42 dealer branches, 12,480 sellers and
+              multi-category automotive inventory.</p>
+            <div class="d-flex align-items-center gap-2 flex-wrap mt-2">
+              <span class="overview-scope-label"><i class="bi bi-globe2"></i> Enterprise Marketplace Telemetry</span>
+              <span class="fs-12 text-muted-c d-none d-sm-inline-block"><i
+                  class="bi bi-shield-check text-success-c me-1"></i>All 42 Regional Hubs Synced</span>
+            </div>
+          </div>
+          <div class="ourt-page-actions">
+            <div class="dropdown">
+              <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="timeframeDropdownBtn"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-calendar3 me-1"></i><span id="selectedTimeframeText">Last 30 Days</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="timeframeDropdownBtn">
+                <li><a class="dropdown-item timeframe-opt" href="#" data-range="today">Today (Live)</a></li>
+                <li><a class="dropdown-item timeframe-opt" href="#" data-range="7d">Last 7 Days</a></li>
+                <li><a class="dropdown-item timeframe-opt active" href="#" data-range="30d">Last 30 Days</a></li>
+                <li><a class="dropdown-item timeframe-opt" href="#" data-range="quarter">This Quarter (Q4)</a></li>
+                <li><a class="dropdown-item timeframe-opt" href="#" data-range="year">This Financial Year</a></li>
+              </ul>
+            </div>
+            <button class="btn btn-light btn-sm" id="btnSyncTelemetry" title="Sync live telemetry stream">
+              <i class="bi bi-arrow-repeat me-1"></i>Sync
+            </button>
+            <div class="dropdown">
+              <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                <i class="bi bi-download me-1"></i>Export
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-header">Export Format</li>
+                <li><a class="dropdown-item export-action" data-type="CSV" href="#"><i
+                      class="bi bi-filetype-csv me-2 text-primary-c"></i>Export CSV Data</a></li>
+                <li><a class="dropdown-item export-action" data-type="PDF" href="#"><i
+                      class="bi bi-filetype-pdf me-2 text-danger-c"></i>Download PDF Report</a></li>
+                <li><a class="dropdown-item export-action" data-type="Excel" href="#"><i
+                      class="bi bi-file-earmark-excel me-2 text-success-c"></i>Export Excel Sheet</a></li>
+              </ul>
+            </div>
+            <a href="pages/vehicles/add-vehicle.html" class="btn btn-primary btn-sm">
+              <i class="bi bi-plus-lg me-1"></i>Add Vehicle
+            </a>
+          </div>
+        </div>
+
+        <!-- Telemetry Highlights Quick Ribbon -->
+        <div class="d-flex align-items-center gap-2 overflow-x-auto pb-2 mb-3 scroll-thin" data-aos="fade-up">
+          <div class="chart-metric-chip text-nowrap">
+            <span class="status-pulse-dot primary"></span>Gross Merchandise Value: <strong>₹128.4 Cr</strong>
+          </div>
+          <div class="chart-metric-chip text-nowrap">
+            <span class="status-pulse-dot success"></span>Active Dealerships: <strong>42 Hubs</strong>
+          </div>
+          <div class="chart-metric-chip text-nowrap">
+            <span class="status-pulse-dot warning"></span>Avg Conversion Rate: <strong>3.42%</strong>
+          </div>
+          <div class="chart-metric-chip text-nowrap">
+            <span class="status-pulse-dot info"></span>Lead Response TAT: <strong>1.8 Hours</strong>
+          </div>
+          <div class="chart-metric-chip text-nowrap">
+            <span class="status-pulse-dot success"></span>Buyer CSAT Score: <strong>4.86 / 5.0</strong>
+          </div>
+        </div>
+
+        <!-- KPI Row 1: Marketplace Scale -->
+        <div class="row g-3 kpi-row mb-3">
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Total Verified Sellers</div>
+                  <div class="kpi-value" data-counter="12480" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-primary text-primary-c"><i class="bi bi-shop"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 89%;" aria-valuenow="89"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+8.2%</span> vs last month</div>
+                  <span class="fs-11 text-muted-c">Target: 14k</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Active Vehicle Listings</div>
+                  <div class="kpi-value" data-counter="48920" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-info text-info-c"><i class="bi bi-car-front-fill"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 76%;" aria-valuenow="76"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+5.4%</span> vs last month</div>
+                  <span class="fs-11 text-muted-c">3,840 added wk</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Parts &amp; Catalog Items</div>
+                  <div class="kpi-value" data-counter="182450" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-accent text-accent-c"><i class="bi bi-box-seam-fill"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-accent" role="progressbar" style="width: 94%;" aria-valuenow="94"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+3.1%</span> vs last month</div>
+                  <span class="fs-11 text-muted-c">98.4% in-stock</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Registered Buyers</div>
+                  <div class="kpi-value" data-counter="1240500" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-success text-success-c"><i class="bi bi-people-fill"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 84%;" aria-valuenow="84"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+6.8%</span> vs last month</div>
+                  <span class="fs-11 text-muted-c">84k active wk</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Row 2: Revenue & Operations -->
+        <div class="row g-3 kpi-row mb-3">
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Transactions &amp; Orders</div>
+                  <div class="kpi-value" data-counter="86420" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-primary text-primary-c"><i class="bi bi-receipt"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 92%;" aria-valuenow="92"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+4.2%</span> this month</div>
+                  <span class="fs-11 text-muted-c">96.2% delivered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Monthly Gross Revenue</div>
+                  <div class="kpi-value">₹8.42 Cr</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-success text-success-c"><i class="bi bi-cash-coin"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 86%;" aria-valuenow="86"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+9.6%</span> this month</div>
+                  <span class="fs-11 text-muted-c">Run rate ₹101 Cr</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Active Sales Leads</div>
+                  <div class="kpi-value" data-counter="7450" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-info text-info-c"><i class="bi bi-diagram-3"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 68%;" aria-valuenow="68"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>+3.8%</span> vs last week</div>
+                  <span class="fs-11 text-muted-c">2,410 hot leads</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="card ourt-kpi-card h-100">
+              <div class="d-flex align-items-start justify-content-between">
+                <div>
+                  <div class="kpi-label">Pending Inquiries</div>
+                  <div class="kpi-value" data-counter="4820" data-counter-prefix="" data-counter-suffix=""
+                    data-counter-decimals="0">0</div>
+                </div>
+                <span class="ourt-stat-icon bg-soft-warning text-warning-c"><i class="bi bi-chat-left-text"></i></span>
+              </div>
+              <div>
+                <div class="progress mb-2" style="height:4px;">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 58%;" aria-valuenow="58"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="kpi-foot justify-content-between">
+                  <div><span class="kpi-trend down"><i class="bi bi-arrow-down-short"></i>-2.1%</span> SLA queue</div>
+                  <span class="fs-11 text-muted-c">Avg TAT: 1.8 hrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Chart Section: Marketplace Performance & Top Sellers -->
+        <div class="row g-3 mb-3">
+          <div class="col-xxl-8">
+            <div class="card h-100" data-aos="fade-up">
+              <div class="card-header flex-wrap gap-2">
+                <div>
+                  <h6 class="fw-700 mb-0">Automotive Marketplace Performance</h6>
+                  <span class="fs-12 text-muted-c">Vehicle unit sales (Cr ₹) vs service &amp; parts revenue over
+                    time</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                  <span class="chart-metric-chip d-none d-md-inline-flex">
+                    <span class="status-pulse-dot primary" style="width:7px;height:7px;"></span>Vehicle Sales:
+                    <strong>₹74.8 Cr</strong>
+                  </span>
+                  <span class="chart-metric-chip d-none d-md-inline-flex">
+                    <span class="status-pulse-dot warning" style="width:7px;height:7px;"></span>Service: <strong>₹58.4
+                      Cr</strong>
+                  </span>
+                  <div class="btn-group btn-group-sm p-1 rounded-2"
+                    style="background:var(--ourt-body-bg); border:1px solid var(--ourt-border);" role="group">
+                    <button type="button" class="chart-time-pill" data-period="30D">30D</button>
+                    <button type="button" class="chart-time-pill" data-period="90D">90D</button>
+                    <button type="button" class="chart-time-pill active" data-period="1Y">1Y</button>
+                    <button type="button" class="chart-time-pill" data-period="ALL">All</button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-wrap" style="height:340px;"><canvas id="chartPlatformPerf"></canvas></div>
+              </div>
+              <div class="card-footer py-2 px-3 border-top"
+                style="border-color:var(--ourt-border); background:var(--ourt-body-bg);">
+                <div class="row text-center g-2 fs-12 text-muted-c">
+                  <div class="col-4 border-end" style="border-color:var(--ourt-border);">
+                    <span class="d-block text-muted-c fs-11">Peak Month</span>
+                    <strong class="text-heading fs-13">December · ₹88.0 Cr</strong>
+                  </div>
+                  <div class="col-4 border-end" style="border-color:var(--ourt-border);">
+                    <span class="d-block text-muted-c fs-11">YoY Expansion</span>
+                    <strong class="text-success-c fs-13"><i class="bi bi-arrow-up-short"></i>+18.4% Annual</strong>
+                  </div>
+                  <div class="col-4">
+                    <span class="d-block text-muted-c fs-11">Top Sector</span>
+                    <strong class="text-heading fs-13">EV &amp; Hybrid (+34.2%)</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-4">
+            <div class="card h-100" data-aos="fade-up" data-aos-delay="100">
+              <div class="card-header">
+                <div>
+                  <h6 class="fw-700 mb-0">Top Performing Dealerships</h6>
+                  <span class="fs-12 text-muted-c">Ranked by monthly gross volume</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <a href="pages/sellers/sellers.html" class="fs-13 fw-600 text-decoration-none">View All (42) <i
+                      class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="card-body pt-1">
+                <!-- Seller 1 -->
+                <div class="list-row">
+                  <div class="seller-rank-badge top-1">1</div>
+                  <img src="assets/images/sellers/seller-1.svg" style="width:42px;height:42px;border-radius:11px;"
+                    alt="AutoHub Delhi">
+                  <div class="flex-grow-1 min-w-0">
+                    <div class="d-flex align-items-center gap-1">
+                      <span class="fs-13 fw-700 text-heading text-truncate">AutoHub Delhi</span>
+                      <i class="bi bi-patch-check-fill text-primary-c fs-13" title="Verified Enterprise Dealer"></i>
+                    </div>
+                    <span class="fs-11 text-muted-c d-block">Delhi NCR &middot; 842 listings</span>
+                    <div class="progress mt-1" style="height:3px; max-width:120px;">
+                      <div class="progress-bar bg-primary" style="width: 94%;"></div>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block fs-13 text-heading">₹1.24 Cr</strong>
+                    <span class="fs-11 text-success-c fw-600">
+                      <i class="bi bi-star-fill text-warning" style="font-size:11px;"></i> 4.9 <small
+                        class="text-muted-c">(842)</small>
+                    </span>
+                  </div>
+                </div>
+                <!-- Seller 2 -->
+                <div class="list-row">
+                  <div class="seller-rank-badge top-2">2</div>
+                  <img src="assets/images/sellers/seller-4.svg" style="width:42px;height:42px;border-radius:11px;"
+                    alt="Prime Motors">
+                  <div class="flex-grow-1 min-w-0">
+                    <div class="d-flex align-items-center gap-1">
+                      <span class="fs-13 fw-700 text-heading text-truncate">Prime Motors</span>
+                      <i class="bi bi-patch-check-fill text-primary-c fs-13" title="Verified Enterprise Dealer"></i>
+                    </div>
+                    <span class="fs-11 text-muted-c d-block">Mumbai, MH &middot; 614 listings</span>
+                    <div class="progress mt-1" style="height:3px; max-width:120px;">
+                      <div class="progress-bar bg-success" style="width: 88%;"></div>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block fs-13 text-heading">₹98.2 L</strong>
+                    <span class="fs-11 text-success-c fw-600">
+                      <i class="bi bi-star-fill text-warning" style="font-size:11px;"></i> 4.8 <small
+                        class="text-muted-c">(614)</small>
+                    </span>
+                  </div>
+                </div>
+                <!-- Seller 3 -->
+                <div class="list-row">
+                  <div class="seller-rank-badge top-3">3</div>
+                  <img src="assets/images/sellers/seller-2.svg" style="width:42px;height:42px;border-radius:11px;"
+                    alt="SpeedZone Bikes">
+                  <div class="flex-grow-1 min-w-0">
+                    <div class="d-flex align-items-center gap-1">
+                      <span class="fs-13 fw-700 text-heading text-truncate">SpeedZone Bikes</span>
+                      <i class="bi bi-patch-check-fill text-primary-c fs-13" title="Verified Bike Dealer"></i>
+                    </div>
+                    <span class="fs-11 text-muted-c d-block">Pune, MH &middot; 312 listings</span>
+                    <div class="progress mt-1" style="height:3px; max-width:120px;">
+                      <div class="progress-bar bg-info" style="width: 79%;"></div>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block fs-13 text-heading">₹42.1 L</strong>
+                    <span class="fs-11 text-success-c fw-600">
+                      <i class="bi bi-star-fill text-warning" style="font-size:11px;"></i> 4.7 <small
+                        class="text-muted-c">(312)</small>
+                    </span>
+                  </div>
+                </div>
+                <!-- Seller 4 -->
+                <div class="list-row">
+                  <div class="seller-rank-badge">4</div>
+                  <img src="assets/images/sellers/seller-7.svg" style="width:42px;height:42px;border-radius:11px;"
+                    alt="Metro Cars">
+                  <div class="flex-grow-1 min-w-0">
+                    <div class="d-flex align-items-center gap-1">
+                      <span class="fs-13 fw-700 text-heading text-truncate">Metro Cars</span>
+                      <i class="bi bi-patch-check-fill text-primary-c fs-13" title="Verified Car Dealer"></i>
+                    </div>
+                    <span class="fs-11 text-muted-c d-block">Bengaluru, KA &middot; 489 listings</span>
+                    <div class="progress mt-1" style="height:3px; max-width:120px;">
+                      <div class="progress-bar bg-warning" style="width: 74%;"></div>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block fs-13 text-heading">₹76.5 L</strong>
+                    <span class="fs-11 text-success-c fw-600">
+                      <i class="bi bi-star-fill text-warning" style="font-size:11px;"></i> 4.6 <small
+                        class="text-muted-c">(489)</small>
+                    </span>
+                  </div>
+                </div>
+                <!-- Seller 5 -->
+                <div class="list-row">
+                  <div class="seller-rank-badge">5</div>
+                  <img src="assets/images/sellers/seller-5.svg" style="width:42px;height:42px;border-radius:11px;"
+                    alt="Apex Motors">
+                  <div class="flex-grow-1 min-w-0">
+                    <div class="d-flex align-items-center gap-1">
+                      <span class="fs-13 fw-700 text-heading text-truncate">Apex EV Motors</span>
+                      <i class="bi bi-lightning-charge-fill text-warning fs-13" title="Certified EV Specialist"></i>
+                    </div>
+                    <span class="fs-11 text-muted-c d-block">Hyderabad, TS &middot; 284 listings</span>
+                    <div class="progress mt-1" style="height:3px; max-width:120px;">
+                      <div class="progress-bar bg-accent" style="width: 86%;"></div>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block fs-13 text-heading">₹58.9 L</strong>
+                    <span class="fs-11 text-success-c fw-600">
+                      <i class="bi bi-star-fill text-warning" style="font-size:11px;"></i> 4.9 <small
+                        class="text-muted-c">(284)</small>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Analytics Section: Inventory Breakdown + Demand Funnel + Operations Activity -->
+        <div class="row g-3 mb-3">
+          <!-- Inventory Donut -->
+          <div class="col-xxl-4">
+            <div class="card h-100" data-aos="fade-up">
+              <div class="card-header">
+                <div>
+                  <h6 class="fw-700 mb-0">Vehicle Inventory Distribution</h6>
+                  <span class="fs-12 text-muted-c">Breakdown by certification tier</span>
+                </div>
+                <span class="badge badge-soft-primary rounded-pill">52% Brand New</span>
+              </div>
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div class="chart-wrap mb-3" style="height:210px;"><canvas id="chartNewUsed"></canvas></div>
+                <div class="d-flex flex-column gap-2 pt-2 border-top" style="border-color:var(--ourt-border);">
+                  <div class="d-flex justify-content-between align-items-center p-2 rounded-2"
+                    style="background:var(--ourt-body-bg);">
+                    <span class="fs-12 fw-600">
+                      <span
+                        style="width:9px;height:9px;border-radius:50%;background:var(--chart-1);display:inline-block;margin-right:6px;"></span>Brand
+                      New Cars
+                    </span>
+                    <strong class="fs-12 text-heading">25,438 units (52%)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center p-2 rounded-2"
+                    style="background:var(--ourt-body-bg);">
+                    <span class="fs-12 fw-600">
+                      <span
+                        style="width:9px;height:9px;border-radius:50%;background:var(--chart-2);display:inline-block;margin-right:6px;"></span>Pre-Owned
+                      / Used
+                    </span>
+                    <strong class="fs-12 text-heading">16,632 units (34%)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center p-2 rounded-2"
+                    style="background:var(--ourt-body-bg);">
+                    <span class="fs-12 fw-600">
+                      <span
+                        style="width:9px;height:9px;border-radius:50%;background:var(--chart-3);display:inline-block;margin-right:6px;"></span>Certified
+                      Pre-Owned
+                    </span>
+                    <strong class="fs-12 text-heading">6,850 units (14%)</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demand Funnel -->
+          <div class="col-xxl-4">
+            <div class="card h-100" data-aos="fade-up" data-aos-delay="50">
+              <div class="card-header">
+                <div>
+                  <h6 class="fw-700 mb-0">Lead &amp; Demand Funnel</h6>
+                  <span class="fs-12 text-muted-c">Live buyer intent telemetry</span>
+                </div>
+                <span class="badge badge-soft-success rounded-pill"><i class="bi bi-arrow-up-short"></i>+14.2%
+                  MoM</span>
+              </div>
+              <div class="card-body">
+                <div class="dashboard-demand-list">
+                  <div class="demand-item">
+                    <div class="demand-top">
+                      <span class="demand-label">
+                        <span class="demand-icon"><i class="bi bi-chat-left-text"></i></span>Vehicle Enquiries
+                      </span>
+                      <div>
+                        <strong>2,840</strong>
+                        <span class="fs-11 text-muted-c ms-1">/ 3.2k target</span>
+                      </div>
+                    </div>
+                    <div class="demand-progress">
+                      <div class="demand-progress-bar bg-primary" style="width: 88%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="demand-item">
+                    <div class="demand-top">
+                      <span class="demand-label">
+                        <span class="demand-icon text-success-c" style="background:rgba(23,178,106,.14);"><i
+                            class="bi bi-calendar2-check"></i></span>Test Drives Booked
+                      </span>
+                      <div>
+                        <strong>612</strong>
+                        <span class="fs-11 text-muted-c ms-1">/ 800 target</span>
+                      </div>
+                    </div>
+                    <div class="demand-progress">
+                      <div class="demand-progress-bar bg-success" style="width: 76%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="demand-item">
+                    <div class="demand-top">
+                      <span class="demand-label">
+                        <span class="demand-icon text-info-c" style="background:rgba(11,165,236,.14);"><i
+                            class="bi bi-credit-card"></i></span>Finance Pre-Approvals
+                      </span>
+                      <div>
+                        <strong>944</strong>
+                        <span class="fs-11 text-muted-c ms-1">/ 1.0k target</span>
+                      </div>
+                    </div>
+                    <div class="demand-progress">
+                      <div class="demand-progress-bar bg-info" style="width: 94%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="demand-item">
+                    <div class="demand-top">
+                      <span class="demand-label">
+                        <span class="demand-icon text-warning-c" style="background:rgba(247,144,9,.16);"><i
+                            class="bi bi-arrow-left-right"></i></span>Vehicle Exchange Leads
+                      </span>
+                      <div>
+                        <strong>428</strong>
+                        <span class="fs-11 text-muted-c ms-1">/ 600 target</span>
+                      </div>
+                    </div>
+                    <div class="demand-progress">
+                      <div class="demand-progress-bar bg-warning" style="width: 71%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Operations Activity -->
+          <div class="col-xxl-4">
+            <div class="card h-100" data-aos="fade-up" data-aos-delay="100">
+              <div class="card-header">
+                <div>
+                  <h6 class="fw-700 mb-0">Live Operations Stream</h6>
+                  <span class="fs-12 text-muted-c">Real-time platform audit log</span>
+                </div>
+                <span class="status-pulse-dot success" title="Live Event Feed Active"></span>
+              </div>
+              <div class="card-body">
+                <div class="timeline-v">
+                  <div class="t-item">
+                    <span class="t-dot bg-primary"><i class="bi bi-car-front"></i></span>
+                    <strong class="d-block fs-13 text-heading">New Vehicle Listed</strong>
+                    <span class="fs-11 text-muted-c">Hyundai Creta SX (Turbo Petrol) by Prime Motors &middot; 8 min
+                      ago</span>
+                  </div>
+                  <div class="t-item">
+                    <span class="t-dot bg-success"><i class="bi bi-check2-circle"></i></span>
+                    <strong class="d-block fs-13 text-heading">Dealer KYC Approved</strong>
+                    <span class="fs-11 text-muted-c">SpeedZone Bikes Tier-1 Verification completed &middot; 34 min
+                      ago</span>
+                  </div>
+                  <div class="t-item">
+                    <span class="t-dot bg-info"><i class="bi bi-receipt"></i></span>
+                    <strong class="d-block fs-13 text-heading">Order Created &amp; Confirmed</strong>
+                    <span class="fs-11 text-muted-c">#ORD-88420 &middot; ₹13.2L &middot; 1 hour ago</span>
+                  </div>
+                  <div class="t-item">
+                    <span class="t-dot bg-warning"><i class="bi bi-credit-card"></i></span>
+                    <strong class="d-block fs-13 text-heading">Deposit Payment Received</strong>
+                    <span class="fs-11 text-muted-c">₹4,50,000 via NetBanking (Rahul Verma) &middot; 2 hours ago</span>
+                  </div>
+                  <div class="t-item">
+                    <span class="t-dot bg-accent"><i class="bi bi-star"></i></span>
+                    <strong class="d-block fs-13 text-heading">Verified Buyer Review</strong>
+                    <span class="fs-11 text-muted-c">5★ for AutoHub Delhi &middot; Delivery was seamless &middot; 3
+                      hours ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders & Transactions Table -->
+        <div class="card" data-aos="fade-up">
+          <div class="card-header flex-wrap gap-2">
+            <div>
+              <h6 class="fw-700 mb-0">Recent Vehicle &amp; Parts Transactions</h6>
+              <span class="fs-12 text-muted-c">Live transaction stream across dealerships, retail buyers and fleet
+                accounts</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <!-- Search Table Input -->
+              <div class="position-relative">
+                <i class="bi bi-search position-absolute text-muted-c"
+                  style="left:11px; top:50%; transform:translateY(-50%); font-size:12px;"></i>
+                <input type="text" id="orderTableSearch" class="form-control form-control-sm ps-4"
+                  placeholder="Filter orders, cars..." style="width:190px;">
+              </div>
+              <!-- Status Filter Buttons -->
+              <div class="btn-group btn-group-sm p-1 rounded-2"
+                style="background:var(--ourt-body-bg); border:1px solid var(--ourt-border);" role="group">
+                <button type="button" class="chart-time-pill active table-filter-pill" data-status="all">All
+                  (5)</button>
+                <button type="button" class="chart-time-pill table-filter-pill"
+                  data-status="confirmed">Confirmed</button>
+                <button type="button" class="chart-time-pill table-filter-pill" data-status="pending">Pending</button>
+                <button type="button" class="chart-time-pill table-filter-pill"
+                  data-status="delivered">Delivered</button>
+                <button type="button" class="chart-time-pill table-filter-pill"
+                  data-status="cancelled">Cancelled</button>
+              </div>
+              <a href="pages/orders/orders.html" class="btn btn-light btn-sm">
+                <i class="bi bi-arrow-up-right me-1"></i>View All Orders
+              </a>
+            </div>
+          </div>
+          <div class="table-responsive-wrap">
+            <table class="table table-hover mb-0" id="recentOrdersTable">
+              <thead>
+                <tr>
+                  <th>Order Reference</th>
+                  <th>Customer</th>
+                  <th>Dealership / Seller</th>
+                  <th>Vehicle / Product Item</th>
+                  <th>Gross Amount</th>
+                  <th>Payment Type</th>
+                  <th>Fulfillment Status</th>
+                  <th class="text-end">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="confirmed" data-search="rahul verma prime motors hyundai creta sx">
+                  <td>
+                    <span class="order-id-badge">#ORD-88420</span>
+                  </td>
+                  <td class="cell-user">
+                    <img src="assets/images/avatars/av-1.svg" alt="Rahul Verma">
+                    <div>
+                      <strong class="d-block fs-13 text-heading">Rahul Verma</strong>
+                      <span class="fs-11 text-muted-c">New Delhi &middot; Verified Buyer</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="fw-600 text-heading">Prime Motors</span>
+                    <span class="fs-11 text-muted-c d-block">Mumbai Branch</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-car-front-fill text-primary-c fs-16"></i>
+                      <div>
+                        <span class="fw-600 text-heading">Hyundai Creta SX</span>
+                        <span class="badge badge-soft-secondary rounded-pill ms-1" style="font-size:10px;">1.5
+                          Turbo</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong class="fs-13 text-heading">₹13,20,000</strong></td>
+                  <td><span class="order-pay-pill"><i class="bi bi-bank me-1"></i>NetBanking</span></td>
+                  <td>
+                    <span class="badge badge-soft-success rounded-pill">
+                      <span class="status-pulse-dot success" style="width:5px;height:5px;"></span>Confirmed
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="pages/orders/order-details.html" class="btn btn-light btn-sm p-1 px-2"
+                      title="View Order Details">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr data-status="pending" data-search="sneha kapoor autohub delhi honda city zx">
+                  <td>
+                    <span class="order-id-badge">#ORD-88419</span>
+                  </td>
+                  <td class="cell-user">
+                    <img src="assets/images/avatars/av-2.svg" alt="Sneha Kapoor">
+                    <div>
+                      <strong class="d-block fs-13 text-heading">Sneha Kapoor</strong>
+                      <span class="fs-11 text-muted-c">Gurugram &middot; Test-Driven</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="fw-600 text-heading">AutoHub Delhi</span>
+                    <span class="fs-11 text-muted-c d-block">Connaught Place</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-car-front-fill text-primary-c fs-16"></i>
+                      <div>
+                        <span class="fw-600 text-heading">Honda City ZX</span>
+                        <span class="badge badge-soft-secondary rounded-pill ms-1" style="font-size:10px;">i-VTEC</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong class="fs-13 text-heading">₹13,80,000</strong></td>
+                  <td><span class="order-pay-pill"><i class="bi bi-credit-card me-1"></i>Auto Loan</span></td>
+                  <td>
+                    <span class="badge badge-soft-warning rounded-pill">
+                      <span class="status-pulse-dot warning" style="width:5px;height:5px;"></span>Pending
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="pages/orders/order-details.html" class="btn btn-light btn-sm p-1 px-2"
+                      title="View Order Details">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr data-status="delivered" data-search="arjun mehta speedzone bikes re classic 350">
+                  <td>
+                    <span class="order-id-badge">#ORD-88418</span>
+                  </td>
+                  <td class="cell-user">
+                    <img src="assets/images/avatars/av-4.svg" alt="Arjun Mehta">
+                    <div>
+                      <strong class="d-block fs-13 text-heading">Arjun Mehta</strong>
+                      <span class="fs-11 text-muted-c">Pune &middot; Cash on Delivery</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="fw-600 text-heading">SpeedZone Bikes</span>
+                    <span class="fs-11 text-muted-c d-block">Pune HQ</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-bicycle text-success-c fs-16"></i>
+                      <div>
+                        <span class="fw-600 text-heading">RE Classic 350</span>
+                        <span class="badge badge-soft-secondary rounded-pill ms-1" style="font-size:10px;">Gunmetal
+                          Grey</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong class="fs-13 text-heading">₹1,93,000</strong></td>
+                  <td><span class="order-pay-pill"><i class="bi bi-qr-code me-1"></i>UPI QR</span></td>
+                  <td>
+                    <span class="badge badge-soft-success rounded-pill">
+                      <span class="status-pulse-dot success" style="width:5px;height:5px;"></span>Delivered
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="pages/orders/order-details.html" class="btn btn-light btn-sm p-1 px-2"
+                      title="View Order Details">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr data-status="cancelled" data-search="priya nair metro cars tata nexon ev">
+                  <td>
+                    <span class="order-id-badge">#ORD-88417</span>
+                  </td>
+                  <td class="cell-user">
+                    <img src="assets/images/avatars/av-5.svg" alt="Priya Nair">
+                    <div>
+                      <strong class="d-block fs-13 text-heading">Priya Nair</strong>
+                      <span class="fs-11 text-muted-c">Bengaluru &middot; Refund Initiated</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="fw-600 text-heading">Metro Cars</span>
+                    <span class="fs-11 text-muted-c d-block">Indiranagar</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-lightning-charge-fill text-warning fs-16"></i>
+                      <div>
+                        <span class="fw-600 text-heading">Tata Nexon EV</span>
+                        <span class="badge badge-soft-info rounded-pill ms-1" style="font-size:10px;">Max 40.5kWh</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong class="fs-13 text-heading">₹14,50,000</strong></td>
+                  <td><span class="order-pay-pill"><i class="bi bi-credit-card-2-front me-1"></i>Credit Card</span></td>
+                  <td>
+                    <span class="badge badge-soft-danger rounded-pill">
+                      <span class="status-pulse-dot danger" style="width:5px;height:5px;"></span>Cancelled
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="pages/orders/order-details.html" class="btn btn-light btn-sm p-1 px-2"
+                      title="View Order Details">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr data-status="delivered" data-search="karan singh autohub delhi brake pad set">
+                  <td>
+                    <span class="order-id-badge">#ORD-88416</span>
+                  </td>
+                  <td class="cell-user">
+                    <img src="assets/images/avatars/av-6.svg" alt="Karan Singh">
+                    <div>
+                      <strong class="d-block fs-13 text-heading">Karan Singh</strong>
+                      <span class="fs-11 text-muted-c">Noida &middot; Regular Buyer</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="fw-600 text-heading">AutoHub Delhi</span>
+                    <span class="fs-11 text-muted-c d-block">Parts Warehouse</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-box-seam text-accent-c fs-16"></i>
+                      <div>
+                        <span class="fw-600 text-heading">Ceramic Brake Pad Set</span>
+                        <span class="badge badge-soft-secondary rounded-pill ms-1" style="font-size:10px;">x4
+                          Units</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong class="fs-13 text-heading">₹3,200</strong></td>
+                  <td><span class="order-pay-pill"><i class="bi bi-qr-code me-1"></i>UPI</span></td>
+                  <td>
+                    <span class="badge badge-soft-success rounded-pill">
+                      <span class="status-pulse-dot success" style="width:5px;height:5px;"></span>Delivered
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="pages/orders/order-details.html" class="btn btn-light btn-sm p-1 px-2"
+                      title="View Order Details">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            class="card-footer d-flex align-items-center justify-content-between flex-wrap gap-2 py-3 px-4 border-top"
+            style="border-color:var(--ourt-border);">
+            <span class="fs-12 text-muted-c" id="orderTableCount">Showing 5 of 86,420 orders across active
+              sellers</span>
+            <div class="d-flex align-items-center gap-2">
+              <a href="pages/orders/orders.html" class="btn btn-soft-primary btn-sm">
+                <span>View Complete Ledger</span> <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Platform Health & Telemetry Strip -->
+        <div class="platform-health-bar" data-aos="fade-up">
+          <div class="health-status">
+            <span class="status-pulse-dot success"></span>
+            <span>All Marketplace Clusters Operational</span>
+            <span class="badge badge-soft-success rounded-pill ms-1">99.98% Uptime</span>
+          </div>
+          <div class="d-flex align-items-center gap-3 flex-wrap fs-12">
+            <span><i class="bi bi-hdd-network text-primary-c me-1"></i>42 Branches Online</span>
+            <span><i class="bi bi-speedometer2 text-info-c me-1"></i>API Latency: <strong>24ms</strong></span>
+            <span><i class="bi bi-shield-check text-success-c me-1"></i>SSL &amp; KYC Compliant</span>
+            <span class="text-muted-c"><i class="bi bi-clock-history me-1"></i>Last Synced: <span
+                id="telemetryLastSync">Just now</span></span>
+          </div>
+        </div>
+
+      </main>
+      <footer class="text-center py-3 fs-12 text-muted-c">
+        © <span class="current-year"></span> OurtAuto. An original UI concept built for demonstration purposes. v1.0.0
+      </footer>
     </div>
   </div>
-</aside>
-  <div class="ourt-flyout" id="ourtFlyout"></div>
-  <div class="ourt-overlay"></div>
-  <div class="ourt-main">
-    <header class="ourt-header">
-  <div class="ourt-header-left">
-    <button class="ourt-sidebar-toggle-btn" aria-label="Toggle sidebar"><i class="bi bi-layout-sidebar"></i></button>
-    <button class="ourt-mobile-toggle-btn" aria-label="Open menu"><i class="bi bi-list"></i></button>
-    <a href="index.html" class="d-flex d-lg-none align-items-center gap-2 text-decoration-none flex-shrink-0">
-      <span class="ourt-brand-logo" style="width:30px;height:30px;font-size:13px;">O</span>
-    </a>
-    <div class="dropdown d-none d-lg-block">
-  <button class="ourt-workspace-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-    <i class="bi bi-grid-3x3-gap-fill text-primary-c"></i><span>Main Marketplace</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li class="dropdown-header">Switch Workspace</li>
-    <li><a class="dropdown-item active" href="#"><i class="bi bi-building me-1"></i>Main Marketplace</a></li><li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Premium Cars</a></li><li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Commercial Vehicles</a></li><li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Bike Marketplace</a></li><li><a class="dropdown-item " href="#"><i class="bi bi-building me-1"></i>Accessories Marketplace</a></li>
-  </ul>
-</div>
-    <div class="ourt-header-search d-none d-md-block" role="button" data-bs-toggle="modal" data-bs-target="#globalSearchModal">
-      <i class="bi bi-search"></i>
-      <input type="text" placeholder="Search anything here ..." readonly style="cursor:pointer;">
-      <kbd>Ctrl K</kbd>
+
+  <div class="modal fade search-modal" id="globalSearchModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="position-relative">
+          <i class="bi bi-search search-icon-lg"></i>
+          <input type="text" class="form-control search-input-lg" id="globalSearchInput"
+            placeholder="Search vehicles, sellers, customers, orders...">
+          <button class="btn btn-icon position-absolute" style="right:10px; top:50%; transform:translateY(-50%);"
+            data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="p-2 scroll-thin" style="max-height:60vh; overflow-y:auto;" id="globalSearchResults"></div>
+        <div class="d-flex align-items-center gap-3 px-3 py-2 border-top fs-12 text-muted-c"
+          style="border-color:var(--ourt-border)">
+          <span><kbd>↵</kbd> to select</span><span><kbd>Esc</kbd> to close</span><span class="ms-auto">Local demo data —
+            no network calls</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="ourt-header-right">
-    <button class="ourt-icon-btn ourt-header-search-mobile-btn d-none" data-bs-toggle="modal" data-bs-target="#globalSearchModal" aria-label="Search"><i class="bi bi-search"></i></button>
-    <div class="dropdown d-none d-md-block">
-      <button class="ourt-icon-btn" type="button" data-bs-toggle="dropdown" aria-label="Language"><i class="bi bi-translate"></i></button>
-      <ul class="dropdown-menu dropdown-menu-end">
-        <li><a class="dropdown-item active" href="#">🇺🇸 English</a></li>
-        <li><a class="dropdown-item" href="#">🇮🇳 हिन्दी</a></li>
-        <li><a class="dropdown-item" href="#">🇪🇸 Español</a></li>
-        <li><a class="dropdown-item" href="#">🇫🇷 Français</a></li>
-      </ul>
-    </div>
-    <div class="dropdown d-none d-md-block">
-  <button class="ourt-icon-btn" type="button" data-bs-toggle="dropdown" aria-label="Demo role" title="Preview as role">
-    <i class="bi bi-person-badge"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end scroll-thin" style="max-height:320px; overflow-y:auto;">
-    <li class="dropdown-header">Preview UI as role (demo only)</li>
-    <li><a class="dropdown-item active" href="#" data-demo-role="Super Admin"><i class="bi bi-person-badge me-1"></i>Super Admin</a></li><li><a class="dropdown-item " href="#" data-demo-role="Admin"><i class="bi bi-person-badge me-1"></i>Admin</a></li><li><a class="dropdown-item " href="#" data-demo-role="Seller"><i class="bi bi-person-badge me-1"></i>Seller</a></li><li><a class="dropdown-item " href="#" data-demo-role="Dealer"><i class="bi bi-person-badge me-1"></i>Dealer</a></li><li><a class="dropdown-item " href="#" data-demo-role="Branch Manager"><i class="bi bi-person-badge me-1"></i>Branch Manager</a></li><li><a class="dropdown-item " href="#" data-demo-role="Sales Manager"><i class="bi bi-person-badge me-1"></i>Sales Manager</a></li><li><a class="dropdown-item " href="#" data-demo-role="Sales Executive"><i class="bi bi-person-badge me-1"></i>Sales Executive</a></li><li><a class="dropdown-item " href="#" data-demo-role="Inventory Manager"><i class="bi bi-person-badge me-1"></i>Inventory Manager</a></li><li><a class="dropdown-item " href="#" data-demo-role="Service Manager"><i class="bi bi-person-badge me-1"></i>Service Manager</a></li><li><a class="dropdown-item " href="#" data-demo-role="Finance Manager"><i class="bi bi-person-badge me-1"></i>Finance Manager</a></li><li><a class="dropdown-item " href="#" data-demo-role="Marketing Manager"><i class="bi bi-person-badge me-1"></i>Marketing Manager</a></li><li><a class="dropdown-item " href="#" data-demo-role="Support Executive"><i class="bi bi-person-badge me-1"></i>Support Executive</a></li>
-  </ul>
-</div>
-    <button class="ourt-icon-btn theme-toggle-btn" aria-label="Toggle theme"><i class="bi bi-moon icon-moon"></i><i class="bi bi-sun icon-sun"></i></button>
-    <div class="dropdown">
-  <button class="ourt-icon-btn position-relative" type="button" data-bs-toggle="dropdown" aria-label="Notifications">
-    <i class="bi bi-bell"></i><span class="badge-count notif-bell-badge">6</span>
-  </button>
-  <div class="dropdown-menu dropdown-menu-end ourt-mega-dropdown">
-    <div class="dd-head"><h6 class="mb-0">Notifications</h6><button class="btn btn-link btn-sm p-0 mark-all-read-btn">Mark all read</button></div>
-    <div class="ourt-notif-item unread">
-      <span class="ourt-notif-icon bg-soft-primary text-primary-c"><i class="bi bi-car-front-fill"></i></span>
-      <div class="flex-grow-1"><p>New vehicle <strong>Honda City ZX</strong> submitted for approval</p><small>4 min ago</small></div>
-    </div><div class="ourt-notif-item unread">
-      <span class="ourt-notif-icon bg-soft-success text-success-c"><i class="bi bi-person-plus-fill"></i></span>
-      <div class="flex-grow-1"><p>Seller <strong>SpeedZone Bikes</strong> completed KYC</p><small>22 min ago</small></div>
-    </div><div class="ourt-notif-item unread">
-      <span class="ourt-notif-icon bg-soft-info text-info-c"><i class="bi bi-credit-card-fill"></i></span>
-      <div class="flex-grow-1"><p>Payment of <strong>₹42,800</strong> received</p><small>1 hour ago</small></div>
-    </div><div class="ourt-notif-item ">
-      <span class="ourt-notif-icon bg-soft-warning text-warning-c"><i class="bi bi-calendar-check"></i></span>
-      <div class="flex-grow-1"><p>Test drive scheduled: <strong>Tata Nexon EV</strong>, tomorrow 11am</p><small>3 hours ago</small></div>
-    </div><div class="ourt-notif-item ">
-      <span class="ourt-notif-icon bg-soft-danger text-danger-c"><i class="bi bi-exclamation-triangle-fill"></i></span>
-      <div class="flex-grow-1"><p>Low stock: <strong>Brake Pad Set</strong> (4 units left)</p><small>5 hours ago</small></div>
-    </div><div class="ourt-notif-item ">
-      <span class="ourt-notif-icon bg-soft-accent text-accent-c"><i class="bi bi-star-fill"></i></span>
-      <div class="flex-grow-1"><p>New 5-star review for <strong>AutoHub Delhi</strong></p><small>Yesterday</small></div>
-    </div>
-    <div class="text-center p-2 border-top" style="border-color:var(--ourt-border)"><a href="pages/communication/notifications.html" class="fs-13 fw-600">View all notifications</a></div>
-  </div>
-</div>
-    <button class="ourt-icon-btn fullscreen-btn d-none d-md-flex" aria-label="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-    <button class="ourt-icon-btn d-none d-md-flex" data-bs-toggle="offcanvas" data-bs-target="#settingsPanel" aria-label="Settings"><i class="bi bi-gear"></i></button>
-    <div class="dropdown">
-  <button class="ourt-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" style="border:none;">
-    <img src="assets/images/avatars/av-3.svg" alt="Profile">
-    <span class="profile-meta d-none d-lg-block"><strong>Ananya Rao</strong><span>Platform Admin</span></span>
-  </button>
-  <div class="dropdown-menu dropdown-menu-end" style="width:230px;">
-    <div class="d-flex align-items-center gap-2 px-2 pb-2 mb-1 border-bottom" style="border-color:var(--ourt-border)!important;">
-      <img src="assets/images/avatars/av-3.svg" style="width:40px;height:40px;border-radius:10px;" alt="">
-      <div><strong class="d-block fs-13 text-heading">Ananya Rao</strong><span class="fs-12 text-muted-c">ananya@ourtauto.io</span></div>
-    </div>
-    <a class="dropdown-item" href="pages/system/profile.html"><i class="bi bi-person"></i> My Profile</a>
-    <a class="dropdown-item" href="pages/system/settings.html"><i class="bi bi-gear"></i> Account Settings</a>
-    <a class="dropdown-item" href="pages/system/pricing.html"><i class="bi bi-gem"></i> Billing &amp; Plans</a>
-    <a class="dropdown-item" href="pages/system/faq.html"><i class="bi bi-life-preserver"></i> Help Center</a>
-    <a class="dropdown-item" href="pages/auth/lock-screen.html"><i class="bi bi-lock"></i> Lock Screen</a>
-    <hr class="my-2" style="border-color:var(--ourt-border)">
-    <a class="dropdown-item text-danger-c" href="pages/auth/login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
-  </div>
-</div>
-  </div>
-</header>
-    <main class="ourt-page-content">
-      <div class="ourt-page-head" data-aos="fade-up">
-  <div>
-    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2"><li class="breadcrumb-item ">Dashboards</li><li class="breadcrumb-item active">Master Overview</li></ol></nav>
-    <h2>Master Dashboard</h2>
-    <p class="text-muted-c mb-0 fs-13 mt-1">Platform-wide view across every seller, branch and category.</p>
-  </div>
-  <div class="ourt-page-actions"><button class="btn btn-light btn-sm"><i class="bi bi-calendar3 me-1"></i>Last 30 Days</button>
-    <button class="btn btn-light btn-sm"><i class="bi bi-download me-1"></i>Export</button>
-    <button class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add Vehicle</button></div>
-</div>
-<div class="row g-3 kpi-row mb-3"><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="0">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
+  <div class="offcanvas offcanvas-end ourt-settings-panel" tabindex="-1" id="settingsPanel">
+    <div class="offcanvas-header border-bottom" style="border-color:var(--ourt-border)">
       <div>
-        <div class="kpi-label">Total Sellers</div>
-        <div class="kpi-value" data-counter="12480" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
+        <h5 class="mb-0">Platform Settings</h5><span class="fs-12 text-muted-c">Live preview — saved
+          automatically</span>
       </div>
-      <span class="ourt-stat-icon bg-soft-primary text-primary-c"><i class="bi bi-shop"></i></span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>8.2%</span> vs last month</div>
-  </div>
-</div><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="50">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Total Vehicles</div>
-        <div class="kpi-value" data-counter="48920" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
+    <div class="offcanvas-body">
+      <h6 class="fs-13 text-uppercase text-muted-c mb-3">Mode</h6>
+      <div class="d-flex gap-2 mb-4">
+        <button class="option-btn" data-set-mode="light"><i class="bi bi-brightness-high"></i>Light</button>
+        <button class="option-btn" data-set-mode="dark"><i class="bi bi-moon-stars"></i>Dark</button>
+        <button class="option-btn" data-set-mode="system"><i class="bi bi-display"></i>System</button>
       </div>
-      <span class="ourt-stat-icon bg-soft-info text-info-c"><i class="bi bi-car-front-fill"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>5.4%</span> vs last month</div>
-  </div>
-</div><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Total Products</div>
-        <div class="kpi-value" data-counter="182450" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
+
+      <h6 class="fs-13 text-uppercase text-muted-c mb-3">Primary Color</h6>
+      <div class="d-flex gap-3 flex-wrap mb-4"><button type="button" class="panel-swatch" data-set-preset="blue"
+          style="background:#2F6FED;color:#2F6FED;" title="Blue"><i class="bi bi-check-lg"></i></button><button
+          type="button" class="panel-swatch" data-set-preset="indigo" style="background:#4F46E5;color:#4F46E5;"
+          title="Indigo"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch"
+          data-set-preset="purple" style="background:#8B5CF6;color:#8B5CF6;" title="Purple"><i
+            class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="teal"
+          style="background:#0D9488;color:#0D9488;" title="Teal"><i class="bi bi-check-lg"></i></button><button
+          type="button" class="panel-swatch" data-set-preset="green" style="background:#16A34A;color:#16A34A;"
+          title="Green"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch"
+          data-set-preset="orange" style="background:#EA580C;color:#EA580C;" title="Orange"><i
+            class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="red"
+          style="background:#DC2626;color:#DC2626;" title="Red"><i class="bi bi-check-lg"></i></button></div>
+
+      <h6 class="fs-13 text-uppercase text-muted-c mb-3">Sidebar Style</h6>
+      <div class="d-flex gap-2 mb-4">
+        <button class="option-btn" data-set-sidebar-style="dark"><i class="bi bi-moon-stars"></i>Dark</button>
+        <button class="option-btn" data-set-sidebar-style="light"><i class="bi bi-brightness-high"></i>Light</button>
+        <button class="option-btn" data-set-sidebar-style="gradient"><i class="bi bi-palette"></i>Gradient</button>
       </div>
-      <span class="ourt-stat-icon bg-soft-accent text-accent-c"><i class="bi bi-box-seam-fill"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>3.1%</span> vs last month</div>
-  </div>
-</div><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="150">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Total Customers</div>
-        <div class="kpi-value" data-counter="1240500" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
+
+      <h6 class="fs-13 text-uppercase text-muted-c mb-3">Layout Width</h6>
+      <div class="d-flex gap-2 mb-4">
+        <button class="option-btn" data-set-layout="fluid"><i class="bi bi-arrows-angle-expand"></i>Fluid</button>
+        <button class="option-btn" data-set-layout="boxed"><i class="bi bi-aspect-ratio"></i>Boxed</button>
       </div>
-      <span class="ourt-stat-icon bg-soft-success text-success-c"><i class="bi bi-people-fill"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>6.8%</span> vs last month</div>
-  </div>
-</div></div>
-<div class="row g-3 kpi-row mb-3"><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="0">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Orders</div>
-        <div class="kpi-value" data-counter="86420" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
+
+      <h6 class="fs-13 text-uppercase text-muted-c mb-3">Sidebar</h6>
+      <div class="d-flex gap-2 mb-4">
+        <button class="option-btn ourt-sidebar-toggle-btn" style="flex:1; border-radius:11px; padding:9px 6px;"><i
+            class="bi bi-layout-sidebar d-block mb-1"></i>Collapse / Expand</button>
       </div>
-      <span class="ourt-stat-icon bg-soft-primary text-primary-c"><i class="bi bi-receipt"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>4.2%</span> this month</div>
-  </div>
-</div><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="50">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Revenue</div>
-        <div class="kpi-value" >₹8.42 Cr</div>
-      </div>
-      <span class="ourt-stat-icon bg-soft-success text-success-c"><i class="bi bi-cash-coin"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>9.6%</span> this month</div>
-  </div>
-</div><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Pending Enquiries</div>
-        <div class="kpi-value" data-counter="4820" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
-      </div>
-      <span class="ourt-stat-icon bg-soft-warning text-warning-c"><i class="bi bi-chat-left-text"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend down"><i class="bi bi-arrow-down-short"></i>2.1%</span> vs last week</div>
-  </div>
-</div><div class="col-xxl-3 col-sm-6" data-aos="fade-up" data-aos-delay="150">
-  <div class="card ourt-kpi-card h-100">
-    <div class="d-flex align-items-start justify-content-between">
-      <div>
-        <div class="kpi-label">Active Leads</div>
-        <div class="kpi-value" data-counter="7450" data-counter-prefix="" data-counter-suffix="" data-counter-decimals="0">0</div>
-      </div>
-      <span class="ourt-stat-icon bg-soft-info text-info-c"><i class="bi bi-diagram-3"></i></span>
-    </div>
-    <div class="kpi-foot"><span class="kpi-trend up"><i class="bi bi-arrow-up-short"></i>3.8%</span> vs last week</div>
-  </div>
-</div></div>
 
-<div class="row g-3 mb-3">
-  <div class="col-xxl-8">
-    <div class="card h-100" data-aos="fade-up">
-      <div class="card-header"><h6 class="fw-700 mb-0">Automotive Marketplace Performance</h6><div class="d-flex align-items-center gap-2"><div class="dropdown">
-  <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">This Month</button>
-  <ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#">Today</a></li><li><a class="dropdown-item" href="#">This Week</a></li><li><a class="dropdown-item" href="#">This Month</a></li><li><a class="dropdown-item" href="#">This Year</a></li></ul>
-</div></div></div>
-      <div class="card-body"><div class="chart-wrap" style="height:330px;"><canvas id="chartPlatformPerf"></canvas></div></div>
+      <hr style="border-color:var(--ourt-border)">
+      <p class="fs-12 text-muted-c mb-0">Accent color changes reload the page so every chart repaints with the new
+        palette. Sidebar style, layout width and light/dark/system mode apply instantly — all persist to this browser.
+      </p>
     </div>
   </div>
-  <div class="col-xxl-4">
-    <div class="card h-100" data-aos="fade-up" data-aos-delay="100">
-      <div class="card-header"><h6 class="fw-700 mb-0">Top Sellers</h6><div class="d-flex align-items-center gap-2"><a href="pages/sellers/sellers.html" class="fs-13 fw-600">View All</a></div></div>
-      <div class="card-body pt-0"><div class="list-row">
-      <img src="assets/images/sellers/seller-1.svg" style="width:40px;height:40px;border-radius:11px;" alt="">
-      <div class="flex-grow-1 min-w-0"><span class="d-block fs-13 fw-600 text-heading text-truncate">AutoHub Delhi</span><span class="fs-11 text-muted-c">842 listings</span></div>
-      <div class="text-end"><strong class="d-block fs-13">₹1.24 Cr</strong><span class="fs-11 text-success-c"><i class="bi bi-arrow-up-short"></i><span class="rating-stars" style="font-size:12.5px"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span></span></div>
-    </div><div class="list-row">
-      <img src="assets/images/sellers/seller-4.svg" style="width:40px;height:40px;border-radius:11px;" alt="">
-      <div class="flex-grow-1 min-w-0"><span class="d-block fs-13 fw-600 text-heading text-truncate">Prime Motors Mumbai</span><span class="fs-11 text-muted-c">614 listings</span></div>
-      <div class="text-end"><strong class="d-block fs-13">₹98.2 L</strong><span class="fs-11 text-success-c"><i class="bi bi-arrow-up-short"></i><span class="rating-stars" style="font-size:12.5px"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span></span></div>
-    </div><div class="list-row">
-      <img src="assets/images/sellers/seller-2.svg" style="width:40px;height:40px;border-radius:11px;" alt="">
-      <div class="flex-grow-1 min-w-0"><span class="d-block fs-13 fw-600 text-heading text-truncate">SpeedZone Bikes</span><span class="fs-11 text-muted-c">312 listings</span></div>
-      <div class="text-end"><strong class="d-block fs-13">₹42.1 L</strong><span class="fs-11 text-success-c"><i class="bi bi-arrow-up-short"></i><span class="rating-stars" style="font-size:12.5px"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span></span></div>
-    </div><div class="list-row">
-      <img src="assets/images/sellers/seller-7.svg" style="width:40px;height:40px;border-radius:11px;" alt="">
-      <div class="flex-grow-1 min-w-0"><span class="d-block fs-13 fw-600 text-heading text-truncate">Metro Cars Bengaluru</span><span class="fs-11 text-muted-c">489 listings</span></div>
-      <div class="text-end"><strong class="d-block fs-13">₹76.5 L</strong><span class="fs-11 text-danger-c"><i class="bi bi-arrow-down-short"></i><span class="rating-stars" style="font-size:12.5px"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span></span></div>
-    </div></div>
-    </div>
-  </div>
-</div>
+  <button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
 
-<div class="row g-3 mb-3">
-  <div class="col-xxl-4">
-    <div class="card h-100" data-aos="fade-up">
-      <div class="card-header"><h6 class="fw-700 mb-0">New vs Used</h6><div class="d-flex align-items-center gap-2">None</div></div>
-      <div class="card-body"><div class="chart-wrap" style="height:220px;"><canvas id="chartNewUsed"></canvas></div></div>
-    </div>
-  </div>
-  <div class="col-xxl-4">
-    <div class="card h-100" data-aos="fade-up" data-aos-delay="50">
-      <div class="card-header"><h6 class="fw-700 mb-0">Demand Snapshot</h6><div class="d-flex align-items-center gap-2"></div></div>
-      <div class="card-body">
-        <div class="d-flex justify-content-between fs-13 mb-2"><span>Vehicle Enquiries</span><strong>2,840</strong></div>
-        <div class="d-flex justify-content-between fs-13 mb-2"><span>Test Drives</span><strong>612</strong></div>
-        <div class="d-flex justify-content-between fs-13 mb-2"><span>Finance Leads</span><strong>944</strong></div>
-        <div class="d-flex justify-content-between fs-13"><span>Exchange Leads</span><strong>428</strong></div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xxl-4">
-    <div class="card h-100" data-aos="fade-up" data-aos-delay="100">
-      <div class="card-header"><h6 class="fw-700 mb-0">Recent Activity</h6><div class="d-flex align-items-center gap-2"><div class="dropdown">
-  <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">This Month</button>
-  <ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#">Today</a></li><li><a class="dropdown-item" href="#">This Week</a></li></ul>
-</div></div></div>
-      <div class="card-body"><div class="timeline-v"><div class="t-item"><span class="t-dot bg-primary"><i class="bi bi-car-front"></i></span><strong class="d-block fs-13">New vehicle listed</strong><span class="fs-11 text-muted-c">Hyundai Creta SX by Prime Motors &middot; 12 min ago</span></div><div class="t-item"><span class="t-dot bg-success"><i class="bi bi-check2-circle"></i></span><strong class="d-block fs-13">Seller approved</strong><span class="fs-11 text-muted-c">SpeedZone Bikes KYC verified &middot; 48 min ago</span></div><div class="t-item"><span class="t-dot bg-info"><i class="bi bi-receipt"></i></span><strong class="d-block fs-13">Order created</strong><span class="fs-11 text-muted-c">#ORD-88420 · ₹13.2L &middot; 1 hour ago</span></div><div class="t-item"><span class="t-dot bg-warning"><i class="bi bi-credit-card"></i></span><strong class="d-block fs-13">Payment received</strong><span class="fs-11 text-muted-c">₹4,50,000 from Rahul Verma &middot; 2 hours ago</span></div><div class="t-item"><span class="t-dot bg-accent"><i class="bi bi-star"></i></span><strong class="d-block fs-13">Review submitted</strong><span class="fs-11 text-muted-c">5★ for AutoHub Delhi &middot; 3 hours ago</span></div></div></div>
-    </div>
-  </div>
-</div>
-
-<div class="card" data-aos="fade-up">
-  <div class="card-header"><h6 class="fw-700 mb-0">Recent Orders</h6><div class="d-flex align-items-center gap-2"><a href="pages/orders/orders.html" class="fs-13 fw-600">View All</a></div></div>
-  <div class="table-responsive-wrap"><table class="table table-hover mb-0"><thead><tr><th>Order</th><th>Customer</th><th>Seller</th><th>Item</th><th>Amount</th><th>Status</th></tr></thead><tbody><tr><td><a href="pages/orders/order-details.html" class="fw-600">#ORD-88420</a></td><td class="cell-user"><img src="assets/images/avatars/av-1.svg" alt="">Rahul Verma</td><td>Prime Motors</td><td>Hyundai Creta SX</td><td>₹13,20,000</td><td><span class="badge badge-soft-success rounded-pill">Confirmed</span></td></tr><tr><td><a href="pages/orders/order-details.html" class="fw-600">#ORD-88419</a></td><td class="cell-user"><img src="assets/images/avatars/av-2.svg" alt="">Sneha Kapoor</td><td>AutoHub Delhi</td><td>Honda City ZX</td><td>₹13,80,000</td><td><span class="badge badge-soft-warning rounded-pill">Pending</span></td></tr><tr><td><a href="pages/orders/order-details.html" class="fw-600">#ORD-88418</a></td><td class="cell-user"><img src="assets/images/avatars/av-4.svg" alt="">Arjun Mehta</td><td>SpeedZone Bikes</td><td>RE Classic 350</td><td>₹1,93,000</td><td><span class="badge badge-soft-success rounded-pill">Delivered</span></td></tr><tr><td><a href="pages/orders/order-details.html" class="fw-600">#ORD-88417</a></td><td class="cell-user"><img src="assets/images/avatars/av-5.svg" alt="">Priya Nair</td><td>Metro Cars</td><td>Tata Nexon EV</td><td>₹14,50,000</td><td><span class="badge badge-soft-danger rounded-pill">Cancelled</span></td></tr><tr><td><a href="pages/orders/order-details.html" class="fw-600">#ORD-88416</a></td><td class="cell-user"><img src="assets/images/avatars/av-6.svg" alt="">Karan Singh</td><td>AutoHub Delhi</td><td>Brake Pad Set (x4)</td><td>₹3,200</td><td><span class="badge badge-soft-success rounded-pill">Delivered</span></td></tr></tbody></table></div>
-</div>
-
-    </main>
-    <footer class="text-center py-3 fs-12 text-muted-c">
-      © <span class="current-year"></span> OurtAuto. An original UI concept built for demonstration purposes. v1.0.0
-    </footer>
-  </div>
-</div>
-
-<div class="modal fade search-modal" id="globalSearchModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="position-relative">
-        <i class="bi bi-search search-icon-lg"></i>
-        <input type="text" class="form-control search-input-lg" id="globalSearchInput" placeholder="Search vehicles, sellers, customers, orders...">
-        <button class="btn btn-icon position-absolute" style="right:10px; top:50%; transform:translateY(-50%);" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-      </div>
-      <div class="p-2 scroll-thin" style="max-height:60vh; overflow-y:auto;" id="globalSearchResults"></div>
-      <div class="d-flex align-items-center gap-3 px-3 py-2 border-top fs-12 text-muted-c" style="border-color:var(--ourt-border)">
-        <span><kbd>↵</kbd> to select</span><span><kbd>Esc</kbd> to close</span><span class="ms-auto">Local demo data — no network calls</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="offcanvas offcanvas-end ourt-settings-panel" tabindex="-1" id="settingsPanel">
-  <div class="offcanvas-header border-bottom" style="border-color:var(--ourt-border)">
-    <div><h5 class="mb-0">Platform Settings</h5><span class="fs-12 text-muted-c">Live preview — saved automatically</span></div>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-  </div>
-  <div class="offcanvas-body">
-    <h6 class="fs-13 text-uppercase text-muted-c mb-3">Mode</h6>
-    <div class="d-flex gap-2 mb-4">
-      <button class="option-btn" data-set-mode="light"><i class="bi bi-brightness-high"></i>Light</button>
-      <button class="option-btn" data-set-mode="dark"><i class="bi bi-moon-stars"></i>Dark</button>
-      <button class="option-btn" data-set-mode="system"><i class="bi bi-display"></i>System</button>
-    </div>
-
-    <h6 class="fs-13 text-uppercase text-muted-c mb-3">Primary Color</h6>
-    <div class="d-flex gap-3 flex-wrap mb-4"><button type="button" class="panel-swatch" data-set-preset="blue" style="background:#2F6FED;color:#2F6FED;" title="Blue"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="indigo" style="background:#4F46E5;color:#4F46E5;" title="Indigo"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="purple" style="background:#8B5CF6;color:#8B5CF6;" title="Purple"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="teal" style="background:#0D9488;color:#0D9488;" title="Teal"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="green" style="background:#16A34A;color:#16A34A;" title="Green"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="orange" style="background:#EA580C;color:#EA580C;" title="Orange"><i class="bi bi-check-lg"></i></button><button type="button" class="panel-swatch" data-set-preset="red" style="background:#DC2626;color:#DC2626;" title="Red"><i class="bi bi-check-lg"></i></button></div>
-
-    <h6 class="fs-13 text-uppercase text-muted-c mb-3">Sidebar Style</h6>
-    <div class="d-flex gap-2 mb-4">
-      <button class="option-btn" data-set-sidebar-style="dark"><i class="bi bi-moon-stars"></i>Dark</button>
-      <button class="option-btn" data-set-sidebar-style="light"><i class="bi bi-brightness-high"></i>Light</button>
-      <button class="option-btn" data-set-sidebar-style="gradient"><i class="bi bi-palette"></i>Gradient</button>
-    </div>
-
-    <h6 class="fs-13 text-uppercase text-muted-c mb-3">Layout Width</h6>
-    <div class="d-flex gap-2 mb-4">
-      <button class="option-btn" data-set-layout="fluid"><i class="bi bi-arrows-angle-expand"></i>Fluid</button>
-      <button class="option-btn" data-set-layout="boxed"><i class="bi bi-aspect-ratio"></i>Boxed</button>
-    </div>
-
-    <h6 class="fs-13 text-uppercase text-muted-c mb-3">Sidebar</h6>
-    <div class="d-flex gap-2 mb-4">
-      <button class="option-btn ourt-sidebar-toggle-btn" style="flex:1; border-radius:11px; padding:9px 6px;"><i class="bi bi-layout-sidebar d-block mb-1"></i>Collapse / Expand</button>
-    </div>
-
-    <hr style="border-color:var(--ourt-border)">
-    <p class="fs-12 text-muted-c mb-0">Accent color changes reload the page so every chart repaints with the new palette. Sidebar style, layout width and light/dark/system mode apply instantly — all persist to this browser.</p>
-  </div>
-</div>
-<button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
-
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/search-data.js"></script>
-<script src="assets/js/chart.umd.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <script src="assets/js/search-data.js"></script>
+  <script src="assets/js/chart.umd.min.js"></script>
   <script src="assets/js/charts.js"></script>
 
 
-<script src="assets/js/theme.js"></script>
-<script src="assets/js/sidebar.js"></script>
-<script src="assets/js/tables.js"></script>
-<script src="assets/js/filters.js"></script>
-<script src="assets/js/search.js"></script>
-<script src="assets/js/notifications.js"></script>
-<script src="assets/js/components.js"></script>
-<script src="assets/js/main.js"></script>
-<script>
-NimbusRevenue = [62,74,80,88,95,104,98,112,120,118,132,142];
-OurtCharts.barLineCombo("chartPlatformPerf", {
-  labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-  barData: [42,48,52,58,64,60,70,66,74,80,76,88], lineData: [30,34,38,44,50,46,56,52,60,66,62,72],
-  barLabel: "Vehicle Sales (Cr ₹)", lineLabel: "Service Revenue (Cr ₹)"
-});
-OurtCharts.donut("chartNewUsed", { labels:["New","Used","Certified"], data:[52,34,14], legend:true });
-</script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+  <script src="assets/js/tables.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      // 1. Initialize Main Marketplace Performance Chart
+      var perfDatasets = {
+        "30D": {
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+          barData: [19.2, 22.4, 21.8, 24.6],
+          lineData: [14.1, 16.5, 17.2, 19.8]
+        },
+        "90D": {
+          labels: ["Month 1 (Oct)", "Month 2 (Nov)", "Month 3 (Dec)"],
+          barData: [74.2, 80.5, 88.0],
+          lineData: [60.1, 66.4, 72.8]
+        },
+        "1Y": {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          barData: [42, 48, 52, 58, 64, 60, 70, 66, 74, 80, 76, 88],
+          lineData: [30, 34, 38, 44, 50, 46, 56, 52, 60, 66, 62, 72]
+        },
+        "ALL": {
+          labels: ["2023", "2024", "2025", "2026 (YTD)"],
+          barData: [480, 620, 780, 940],
+          lineData: [320, 410, 520, 680]
+        }
+      };
+
+      var perfChart = OurtCharts.barLineCombo("chartPlatformPerf", {
+        labels: perfDatasets["1Y"].labels,
+        barData: perfDatasets["1Y"].barData,
+        lineData: perfDatasets["1Y"].lineData,
+        barLabel: "Vehicle Sales (Cr ₹)",
+        lineLabel: "Service Revenue (Cr ₹)"
+      });
+
+      // Interactive timeframe switcher for chart
+      document.querySelectorAll(".chart-time-pill[data-period]").forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          var period = this.getAttribute("data-period");
+          if (!perfDatasets[period] || !perfChart) return;
+
+          document.querySelectorAll(".chart-time-pill[data-period]").forEach(function (p) { p.classList.remove("active"); });
+          this.classList.add("active");
+
+          perfChart.data.labels = perfDatasets[period].labels;
+          perfChart.data.datasets[0].data = perfDatasets[period].barData;
+          perfChart.data.datasets[1].data = perfDatasets[period].lineData;
+          perfChart.update();
+
+          if (window.OurtToast) {
+            window.OurtToast.show("Performance chart updated: " + period + " view", "primary");
+          }
+        });
+      });
+
+      // 2. Initialize Vehicle Inventory Donut Chart
+      OurtCharts.donut("chartNewUsed", {
+        labels: ["Brand New", "Pre-Owned / Used", "Certified Pre-Owned"],
+        data: [52, 34, 14],
+        legend: false
+      });
+
+      // 3. Live Table Search & Filter
+      var tableSearchInput = document.getElementById("orderTableSearch");
+      var tableRows = document.querySelectorAll("#recentOrdersTable tbody tr");
+      var currentStatusFilter = "all";
+      var currentSearchQuery = "";
+
+      function filterTable() {
+        var visibleCount = 0;
+        tableRows.forEach(function (row) {
+          var rowStatus = row.getAttribute("data-status") || "";
+          var rowSearchText = (row.getAttribute("data-search") || "") + " " + row.textContent.toLowerCase();
+
+          var matchesStatus = (currentStatusFilter === "all") || (rowStatus === currentStatusFilter);
+          var matchesQuery = !currentSearchQuery || (rowSearchText.indexOf(currentSearchQuery) !== -1);
+
+          if (matchesStatus && matchesQuery) {
+            row.style.display = "";
+            visibleCount++;
+          } else {
+            row.style.display = "none";
+          }
+        });
+
+        var countEl = document.getElementById("orderTableCount");
+        if (countEl) {
+          countEl.textContent = "Showing " + visibleCount + " of 86,420 orders across active sellers";
+        }
+      }
+
+      if (tableSearchInput) {
+        tableSearchInput.addEventListener("input", function () {
+          currentSearchQuery = this.value.trim().toLowerCase();
+          filterTable();
+        });
+      }
+
+      document.querySelectorAll(".table-filter-pill").forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          document.querySelectorAll(".table-filter-pill").forEach(function (p) { p.classList.remove("active"); });
+          this.classList.add("active");
+          currentStatusFilter = this.getAttribute("data-status") || "all";
+          filterTable();
+        });
+      });
+
+      // 4. Telemetry Sync Button
+      var syncBtn = document.getElementById("btnSyncTelemetry");
+      if (syncBtn) {
+        syncBtn.addEventListener("click", function () {
+          var icon = syncBtn.querySelector("i");
+          if (icon) {
+            icon.classList.add("spin-animation");
+            setTimeout(function () { icon.classList.remove("spin-animation"); }, 900);
+          }
+          var lastSyncEl = document.getElementById("telemetryLastSync");
+          if (lastSyncEl) {
+            var now = new Date();
+            lastSyncEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          }
+          if (window.OurtToast) {
+            window.OurtToast.show("Telemetry synchronized with all 42 regional hubs.", "success");
+          }
+        });
+      }
+
+      // 5. Timeframe dropdown
+      document.querySelectorAll(".timeframe-opt").forEach(function (opt) {
+        opt.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelectorAll(".timeframe-opt").forEach(function (o) { o.classList.remove("active"); });
+          this.classList.add("active");
+          var text = this.textContent.trim();
+          var targetBtnText = document.getElementById("selectedTimeframeText");
+          if (targetBtnText) targetBtnText.textContent = text;
+          if (window.OurtToast) {
+            window.OurtToast.show("Dashboard timeframe set to: " + text, "primary");
+          }
+        });
+      });
+
+      // 6. Export Actions
+      document.querySelectorAll(".export-action").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var type = this.getAttribute("data-type") || "Report";
+          if (window.OurtToast) {
+            window.OurtToast.show("Exporting " + type + " dataset... Download will begin shortly.", "primary");
+          }
+        });
+      });
+    })();
+  </script>
 </body>
+
 </html>

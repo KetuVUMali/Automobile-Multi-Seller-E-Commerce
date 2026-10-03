@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-theme-mode="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,17 +17,17 @@
 <noscript><style>[data-aos]{opacity:1 !important; transform:none !important;}</style></noscript>
 <script>(function(){try{
 var d=document.documentElement,ls=window.localStorage;
-var t=ls.getItem("ourt-theme"),p=ls.getItem("ourt-preset"),sb=ls.getItem("ourt-sidebar-style"),lw=ls.getItem("ourt-layout-width");
+var t=ls.getItem("ourt-theme")||"dark",p=ls.getItem("ourt-preset"),sb=ls.getItem("ourt-sidebar-style"),lw=ls.getItem("ourt-layout-width");
 var resolved=t;
 if(t==="system"){resolved=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}
-if(t){d.setAttribute("data-theme",resolved);d.setAttribute("data-theme-mode",t);}
+d.setAttribute("data-theme",resolved);d.setAttribute("data-theme-mode",t);
 if(p)d.setAttribute("data-preset",p);
 if(sb)d.setAttribute("data-sidebar",sb);
 if(lw)d.setAttribute("data-layout",lw);
 }catch(e){}})();</script>
 
 </head>
-<body data-theme="light">
+<body>
 <script>window.OURT_BASE = "../../";</script>
 
 <div class="ourt-shell">

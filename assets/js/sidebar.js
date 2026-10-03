@@ -54,6 +54,12 @@
 
   /* ---- Collapsed-sidebar flyout ---- */
   var flyout = document.getElementById("ourtFlyout");
+  if (!flyout) {
+    flyout = document.createElement("div");
+    flyout.id = "ourtFlyout";
+    flyout.className = "ourt-flyout";
+    document.body.appendChild(flyout);
+  }
   var flyoutHideTimer = null;
   var flyoutOpenItem = null;
 
@@ -64,45 +70,70 @@
     var link = navItem.querySelector(":scope > .ourt-nav-link");
     var submenu = navItem.querySelector(":scope > .ourt-nav-submenu");
     var labelEl = link && link.querySelector(".ourt-nav-link-text");
-    var label = labelEl ? labelEl.textContent : "";
+    var label = labelEl ? labelEl.textContent.trim() : "";
+    var iconEl = link && link.querySelector(".ourt-nav-icon");
+    var iconClass = iconEl ? iconEl.className : "";
 
     if (submenu) {
-      flyout.innerHTML = '<div class="flyout-title">' + label + "</div>" + submenu.outerHTML;
+      flyout.innerHTML = '<div class="flyout-title">' + (iconClass ? '<i class="' + iconClass + ' me-1 text-primary-c"></i>' : '') + '<span>' + label + '</span></div>' + submenu.outerHTML;
       flyout.classList.add("has-submenu");
     } else {
-      flyout.innerHTML = '<div class="flyout-title">' + label + "</div>";
+      var href = link ? (link.getAttribute("href") || "#") : "#";
+      flyout.innerHTML = '<a href="' + href + '" class="flyout-title flyout-direct-link">' + (iconClass ? '<i class="' + iconClass + ' me-1 text-primary-c"></i>' : '') + '<span>' + label + '</span> <i class="bi bi-arrow-right ms-auto fs-12"></i></a>';
       flyout.classList.remove("has-submenu");
     }
     var innerList = flyout.querySelector("ul");
-    if (innerList) innerList.classList.remove("collapse", "show");
+    if (innerList) {
+      innerList.classList.remove("collapse", "show");
+      innerList.removeAttribute("id");
+    }
+
+    // Render off-visibility to measure exact content height before showing
+    flyout.style.visibility = "hidden";
+    flyout.classList.add("show");
 
     var rect = navItem.getBoundingClientRect();
-    flyout.style.top = Math.max(8, rect.top) + "px";
-    flyout.style.left = (rect.right + 10) + "px";
-    flyout.classList.add("show");
+    var flyoutHeight = flyout.offsetHeight || 180;
+    var top = rect.top;
+    if (top + flyoutHeight > window.innerHeight - 16) {
+      top = Math.max(8, window.innerHeight - flyoutHeight - 16);
+    }
+    flyout.style.top = Math.round(top) + "px";
+    flyout.style.left = Math.round(rect.right + 10) + "px";
+    flyout.style.visibility = "visible";
     flyoutOpenItem = navItem;
   }
-  function hideFlyout() { if (flyout) flyout.classList.remove("show"); flyoutOpenItem = null; }
+
+  function hideFlyout() {
+    if (flyout) {
+      flyout.classList.remove("show");
+      flyout.style.visibility = "";
+    }
+    flyoutOpenItem = null;
+  }
   function scheduleHide() { clearTimeout(flyoutHideTimer); flyoutHideTimer = setTimeout(hideFlyout, 220); }
   function cancelHide() { clearTimeout(flyoutHideTimer); }
 
-  document.querySelectorAll(".ourt-sidebar-scroll > .ourt-sidebar-nav > .ourt-nav-item").forEach(function (item) {
+  document.querySelectorAll(".ourt-sidebar .ourt-sidebar-nav > .ourt-nav-item").forEach(function (item) {
     item.addEventListener("mouseenter", function () { cancelHide(); showFlyoutFor(item); });
     item.addEventListener("mouseleave", scheduleHide);
     item.addEventListener("focusin", function () { cancelHide(); showFlyoutFor(item); });
     item.addEventListener("focusout", scheduleHide);
   });
-  if (flyout) { flyout.addEventListener("mouseenter", cancelHide); flyout.addEventListener("mouseleave", scheduleHide); }
+  if (flyout) {
+    flyout.addEventListener("mouseenter", cancelHide);
+    flyout.addEventListener("mouseleave", scheduleHide);
+  }
 
   document.addEventListener("click", function (e) {
-    var groupLink = e.target.closest(".ourt-sidebar-scroll > .ourt-sidebar-nav > .ourt-nav-item > .ourt-nav-link[data-bs-toggle='collapse']");
+    var groupLink = e.target.closest(".ourt-sidebar .ourt-sidebar-nav > .ourt-nav-item > .ourt-nav-link[data-bs-toggle='collapse']");
     if (groupLink && isCollapsedDesktop()) {
       e.preventDefault(); e.stopPropagation();
       var item = groupLink.closest(".ourt-nav-item");
       if (flyoutOpenItem === item) hideFlyout(); else showFlyoutFor(item);
       return;
     }
-    if (flyoutOpenItem && !e.target.closest(".ourt-flyout") && !e.target.closest(".ourt-sidebar-scroll > .ourt-sidebar-nav > .ourt-nav-item")) {
+    if (flyoutOpenItem && !e.target.closest(".ourt-flyout") && !e.target.closest(".ourt-sidebar .ourt-sidebar-nav > .ourt-nav-item")) {
       hideFlyout();
     }
   });
