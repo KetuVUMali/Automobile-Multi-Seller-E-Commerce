@@ -1,0 +1,57 @@
+/* ==== RESPONSIVE RULES — base shell lives in theme.css ==== */
+@media (max-width: 1199.98px){
+  .ourt-page-content{padding:18px 16px 46px;}
+  .ourt-kpi-card .kpi-value{font-size:22px;}
+}
+@media (max-width: 991.98px){
+  .ourt-sidebar{transform:translateX(-100%); box-shadow:none;}
+  body.sidebar-mobile-open .ourt-sidebar{transform:translateX(0); box-shadow:var(--ourt-shadow-lg);}
+  .ourt-main{margin-left:0 !important; width:100% !important;}
+  .ourt-sidebar-toggle-btn{display:none;}
+  .ourt-mobile-toggle-btn{display:flex;}
+  .ourt-header-search{display:none;}
+  .ourt-header-search-mobile-btn{display:flex !important;}
+  .ourt-header{padding:0 14px;}
+  .ourt-profile-btn .profile-meta{display:none;}
+  .ourt-profile-btn{padding:6px; border:none;}
+  .ourt-header-right{gap:2px;}
+  .ourt-icon-btn{width:36px; height:36px; font-size:17px;}
+  .ourt-promo-banner{min-height:auto; padding:24px;}
+  .ourt-workspace-btn span{display:none;}
+  .ourt-kanban-col{min-width:82vw;}
+}
+@media (min-width: 992px){
+  .ourt-mobile-toggle-btn{display:none;}
+  .ourt-header-search-mobile-btn{display:none !important;}
+}
+@media (max-width: 767.98px){
+  .ourt-page-head{flex-direction:column; align-items:stretch;}
+  .ourt-page-head .ourt-page-actions{width:100%;}
+  .ourt-page-head .ourt-page-actions .btn{flex:1;}
+  .ourt-page-head h2{font-size:19px;}
+  .card-body{padding:15px;}
+  .card-header{padding:14px 15px;}
+  .ourt-kpi-card{padding:16px;}
+  .auth-visual{display:none;}
+  .auth-form-side{padding:22px;}
+  .error-code{font-size:74px;}
+  .ourt-filter-bar{flex-direction:column; align-items:stretch;}
+  .ourt-filter-bar .form-select, .ourt-filter-bar .form-control{min-width:0; width:100%;}
+  .dataTable-controls{flex-direction:column; align-items:stretch;}
+  .back-to-top{width:38px; height:38px; bottom:14px; right:14px;}
+  .ourt-brand-name{font-size:16px;}
+  .ourt-step-indicator .step-line{width:22px;}
+  .ourt-step-indicator .step-label{display:none;}
+  .ourt-calendar td{height:64px; font-size:10.5px;}
+}
+@media (max-width: 575.98px){
+  .ourt-header{height:60px;}
+  :root{--header-height:60px;}
+  .ourt-car-card .car-img-wrap{height:140px;}
+  .ourt-promo-banner .promo-illustration{display:none;}
+}
+@media print{
+  .ourt-sidebar, .ourt-header, .ourt-page-actions, .back-to-top, .ourt-overlay{display:none !important;}
+  .ourt-main{margin-left:0 !important;}
+  body{background:#fff;}
+}

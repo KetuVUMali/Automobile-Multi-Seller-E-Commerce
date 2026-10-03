@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login · OurtAuto Platform</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/images/logos/favicon.svg">
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../../assets/css/aos.css">
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+<link rel="stylesheet" href="../../assets/css/theme.css">
+<link rel="stylesheet" href="../../assets/css/responsive.css">
+<noscript><style>[data-aos]{opacity:1 !important; transform:none !important;}</style></noscript>
+<script>(function(){try{
+var d=document.documentElement,ls=window.localStorage;
+var t=ls.getItem("ourt-theme"),p=ls.getItem("ourt-preset"),sb=ls.getItem("ourt-sidebar-style"),lw=ls.getItem("ourt-layout-width");
+var resolved=t;
+if(t==="system"){resolved=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}
+if(t){d.setAttribute("data-theme",resolved);d.setAttribute("data-theme-mode",t);}
+if(p)d.setAttribute("data-preset",p);
+if(sb)d.setAttribute("data-sidebar",sb);
+if(lw)d.setAttribute("data-layout",lw);
+}catch(e){}})();</script>
+</head>
+<body data-theme="light">
+<script>window.OURT_BASE = "../../";</script>
+<div class="auth-shell">
+  <div class="auth-visual">
+  <div class="blob" style="width:280px;height:280px;background:#fff;opacity:.12;top:-60px;right:-60px;"></div>
+  <div class="blob" style="width:200px;height:200px;background:#0c0f1c;opacity:.18;bottom:-60px;left:-40px;"></div>
+  <div class="av-content">
+    <div class="d-flex align-items-center gap-2 mb-4"><span class="ourt-brand-logo">O</span><span class="fs-20 fw-800 text-white">Ourt<span style="color:#ffe0d1;">Auto</span></span></div>
+    <img src="../../assets/images/illustrations/auth-secure.svg" style="width:100%; max-width:340px;" class="mb-4" alt="">
+    <h2>Run your automobile marketplace from one dashboard.</h2>
+    <p>Vehicles, sellers, orders, service and finance — all in one modern SaaS platform built for multi-seller automotive commerce.</p>
+  </div>
+</div>
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <div class="auth-brand d-lg-none"><span class="ourt-brand-logo">O</span><span class="fs-18 fw-800 text-heading">Ourt<span class="text-accent-c">Auto</span></span></div>
+      <h3 class="mb-1">Welcome back</h3>
+      <p class="text-muted-c fs-13 mb-4">Sign in to your OurtAuto dashboard.</p>
+      <form class="needs-validation" novalidate>
+        <div class="mb-3"><label class="form-label">Email Address</label><input type="email" class="form-control" placeholder="you@company.com" required></div>
+        <div class="mb-3"><label class="form-label">Password</label><div class="position-relative"><input type="password" class="form-control" required><button type="button" class="btn btn-icon btn-sm pwd-toggle-btn position-absolute end-0 top-0"><i class="bi bi-eye"></i></button></div></div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="rememberMe"><label class="form-check-label fs-13" for="rememberMe">Remember me</label></div>
+          <a href="../../pages/auth/forgot-password.html" class="fs-13 fw-600">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">Sign In</button>
+        <div class="d-flex align-items-center gap-2 mb-3"><hr class="flex-grow-1" style="border-color:var(--ourt-border);"><span class="fs-12 text-muted-c">or continue with</span><hr class="flex-grow-1" style="border-color:var(--ourt-border);"></div>
+        <div class="d-flex gap-2 mb-3"><button type="button" class="btn btn-light flex-fill"><i class="bi bi-google me-1"></i>Google</button><button type="button" class="btn btn-light flex-fill"><i class="bi bi-microsoft me-1"></i>Microsoft</button></div>
+      </form>
+      <p class="text-center fs-13 mb-0">Don't have an account? <a href="../../pages/auth/register.html" class="fw-600">Create one</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/js/aos.js"></script>
+<script src="../../assets/js/theme.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+</body>
+</html>
